@@ -61,12 +61,13 @@ class CategorySelectViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
     
     @IBAction func saveTransactionBtn(_ sender: Any) {
-        var transactionItem = Transaction(transactionCategory: categoryTextField.text!, date: datePickerView.date, name: nameTextField.text!, transactionDescription: nameTextField.text!, total:totalTextField.text!)
+        var transactionItem = Transaction(tCategory: categoryTextField.text!, tDate: datePickerView.date, tName: nameTextField.text!, tDescription: nameTextField.text!, tTotal: totalTextField.text!)
         
         var transInfo = transactionItem.info()
-        showWarningMsg(textMsg: "Name: \(transInfo.actionName)\nCategory: \(transInfo.actionCategory)\nDate: \(transInfo.actionDate)\nDescription: \(transInfo.actionDescription)\nTotal: \(transInfo.actionTotal)")
+        //showWarningMsg(textMsg: "Name: \(transInfo.actionName)\nCategory: \(transInfo.actionCategory)\nDate: \(transInfo.actionDate)\nDescription: \(transInfo.actionDescription)\nTotal: \(transInfo.actionTotal)")
         
         transactionHistory.append(transactionItem)
+        self.dismiss(animated: true, completion: nil);
     }
     
     private func showWarningMsg(textMsg: String) {

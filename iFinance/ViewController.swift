@@ -44,6 +44,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Do any additional setup after loading the view, typically from a nib.
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        transactionList.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -73,7 +78,7 @@ class Transaction: NSObject {/*}, NSCoding {
     private var transactionDescription:String
     private var total:String//NSDecimalNumber
     
-    init(transactionCategory cat: String, date d: Date, name n: String, transactionDescription desc: String, total tot:String){//NSDecimalNumber ) {
+    init(tCategory cat: String, tDate d: Date, tName n: String, tDescription desc: String, tTotal tot:String) {//NSDecimalNumber ) {
         self.categoty = cat
         self.date = d
         self.name = n
