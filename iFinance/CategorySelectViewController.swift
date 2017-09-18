@@ -12,9 +12,7 @@ class CategorySelectViewController: UIViewController, UIPickerViewDelegate, UIPi
     
     var categoryArr = ["Food", "Entertainment", "Utilities", "Cell phone"]
     
-    //var category = Set(["Food", "Entertainment", "Utilities", "Cell phone"])
-    
-    @IBOutlet weak var abel1: UILabel!
+   // @IBOutlet weak var abel1: UILabel!
 //    @IBOutlet weak var CategoryPickerView: UIPickerView!
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var totalTextField: UITextField!
@@ -31,6 +29,8 @@ class CategorySelectViewController: UIViewController, UIPickerViewDelegate, UIPi
         datePicker.delegate = self
         datePicker.dataSource = self
         self.categoryTextField.inputAccessoryView = datePicker
+        //self.abel1.isUserInteractionEnabled = true
+        
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -47,7 +47,7 @@ class CategorySelectViewController: UIViewController, UIPickerViewDelegate, UIPi
     
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {	
-        abel1.text = categoryArr[row]
+        //abel1.text = categoryArr[row]
         categoryTextField.text = categoryArr[row]
     }
    
@@ -61,13 +61,13 @@ class CategorySelectViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
     
     @IBAction func saveTransactionBtn(_ sender: Any) {
-        var transactionItem = Transaction(tCategory: categoryTextField.text!, tDate: datePickerView.date, tName: nameTextField.text!, tDescription: nameTextField.text!, tTotal: totalTextField.text!)
+//        var transactionItem = Transaction(tCategory: categoryTextField.text!, tDate: datePickerView.date, tName: nameTextField.text!, tDescription: nameTextField.text!, tValue: Double(totalTextField.text!)!)
         
-        var transInfo = transactionItem.info()
+//        var transInfo = transactionItem.getInfo()
         //showWarningMsg(textMsg: "Name: \(transInfo.actionName)\nCategory: \(transInfo.actionCategory)\nDate: \(transInfo.actionDate)\nDescription: \(transInfo.actionDescription)\nTotal: \(transInfo.actionTotal)")
         
-        transactionHistory.append(transactionItem)
-        self.dismiss(animated: true, completion: nil);
+//        transactionHistory.append(transactionItem)
+//        self.dismiss(animated: true, completion: nil);
     }
     
     private func showWarningMsg(textMsg: String) {
