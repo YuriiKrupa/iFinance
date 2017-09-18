@@ -14,6 +14,9 @@ class CategoryManager: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Categories"
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -21,21 +24,33 @@ class CategoryManager: UITableViewController {
         tableView.reloadData()
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categoryStorege.count
-    }
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return categoryStorege.count
+    }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tableReusableCell")!
+        let categoryCell = tableView.dequeueReusableCell(withIdentifier: "categoryCell")!
         let categoryRecord = categoryStorege[indexPath.row].getInfo()
-        cell.textLabel?.text = categoryRecord.cName
+        categoryCell.textLabel?.text = categoryRecord.cName
         
-        return cell
+       return categoryCell
         
     }
     
+    @objc func wayToNewCategory() {
+        self.performSegue(withIdentifier: "newCategory", sender: self)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editCategory" ,
+            let nextScene = segue.destination as? CreateEditCategoryController,
+            let indexPath = self.tableView.indexPathForSelectedRow {
+            //let selectedItem = toDoListItems[indexPath.row]
+            nextScene.categoryToEditIndex = indexPath
+        }
+    }
 }

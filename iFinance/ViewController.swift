@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var monthLabel: UILabel!
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tebleReusableCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableReusableCell")!
         let transactionInfo = transactionHistory[indexPath.row].getInfo()
         cell.textLabel?.text = transactionInfo.actionName
         return cell
@@ -59,9 +59,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        let _ = categoryStorege.append(Category.init(name: "Utilities"))
 //        let _ = categoryStorege.append(Category.init(name: "Cell phone"))
 
+        //Add buttons to navigation bar
         let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.wayToTransaction))
-        let categoryBtnEdit = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(self.wayToCategory))
         self.navigationItem.rightBarButtonItem  = add
+        let categoryBtnEdit = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(self.wayToCategory))
         self.navigationItem.leftBarButtonItem = categoryBtnEdit
         
     }
@@ -77,74 +78,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
   
     @objc func wayToCategory(){
-        self.performSegue(withIdentifier: "toCategory", sender: self)
+        self.performSegue(withIdentifier: "toCategoryManager", sender: self)
     }
     @objc func wayToTransaction(){
         self.performSegue(withIdentifier: "toTransaction", sender:self)
     }
     
 }
-
-//class Transaction: NSObject {
-//    static private var idCounter:Int = 0
-//    private var id:              Int
-//    private var categoty:        String
-//    private var date:            Date
-//    private var name:            String
-//    private var descriptionText: String
-//    private var value:           Double
-//    
-//    init(tCategory cat: String, tDate d: Date, tName n: String, tDescription descript: String, tValue val:Double) {
-//        self.id                 = Transaction.idCounter
-//        Transaction.idCounter  += 1
-//        self.categoty           = cat
-//        self.date               = d
-//        self.name               = n
-//        self.descriptionText    = descript
-//        self.value              = val
-//    }
-//
-//    static func getCount() -> Int {
-//        return idCounter
-//    }
-//    
-//    func getInfo() -> (actionDate: Date, actionName: String, actionDescription:String, actionCategory:String, actionValue:Double) {
-//        return (date, name, descriptionText, categoty, value)
-//    }
-//    
-//
-//}
-
-//class Category: NSObject, NSCoding {
-//    
-//    static private var idCounter: Int = 0
-//    private var id:               Int
-//    private var name:             String
-//    private var descriptionText:  String
-//    
-//    func encode(with aCoder: NSCoder) {
-//        
-//    }
-//    
-//    required init?(coder aDecoder: NSCoder) {
-//        self.name = (aDecoder.decodeObject(forKey: "name") as? String)!
-//        self.descriptionText = (aDecoder.decodeObject(forKey: "descriptionText") as? String)!
-//        self.id = (aDecoder.decodeObject(forKey: "id") as? Int)!
-//    }
-//    init(name n: String, decription d: String = "Description not specified") {
-//        self.id              = Category.idCounter
-//        Category.idCounter  += 1
-//        self.name            = n
-//        self.descriptionText = d
-//    }
-//    
-//    static func getCount() -> Int {
-//        return idCounter
-//    }
-//    
-//    func getInfo() -> (cName: String, cDescription: String, cId: Int) {
-//        return (name, descriptionText, id)
-//    }
-//    
-//}
-
