@@ -14,13 +14,13 @@ class Transaction: NSObject, NSCoding {
     static private var idCounter:Int = 0
     
     //MARK: Instance fields
-    private var id:              Int
-    private var categoty:        Category
-    private var date:            Date
-    private var name:            String
-    private var descriptionText: String
-    private var value:           Double
-    private var isIncome:        Bool
+    private var id:              Int?
+    private var categoty:        Category?
+    private var date:            Date?
+    private var name:            String?
+    private var descriptionText: String?
+    private var value:           Double?
+    private var isIncome:        Bool?
     
     init(tCategory cat: Category, tDate d: Date, tName n: String, tDescription descript: String, tValue val:Double, type isIncome:Bool = false) {
         self.id                 = Transaction.idCounter
@@ -41,34 +41,34 @@ class Transaction: NSObject, NSCoding {
     
     //MARK: Instance methods
     func getId() -> Int {
-        return id
+        return id!
     }
     
     func getCagegory() -> Category {
-        return categoty
+        return categoty!
     }
     
     func getDate() -> Date {
-        return date
+        return date!
     }
     
     func getName() -> String {
-        return name
+        return name!
     }
     
     func getDescription() -> String {
-        return descriptionText
+        return descriptionText!
     }
     
     func getValue() -> Double {
-        return value
+        return value!
     }
     
     func isIncomeType() -> Bool {
-        return isIncome
+        return isIncome!
     }
     func getInfo() -> (actionDate: Date, actionName: String, actionDescription:String, actionCategory:Category, actionValue:Double, actionIsIncome:Bool) {
-        return (date, name, descriptionText, categoty, value, isIncome)
+        return (date!, name!, descriptionText!, categoty!, value!, isIncome!)
     }
     
     
@@ -84,13 +84,16 @@ class Transaction: NSObject, NSCoding {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.id                 = (aDecoder.decodeObject(forKey: "id") as? Int)!
-        self.categoty           = (aDecoder.decodeObject(forKey: "category") as? Category)!
-        self.date               = (aDecoder.decodeObject(forKey: "date") as? Date)!
-        self.name               = (aDecoder.decodeObject(forKey: "name") as? String)!
-        self.descriptionText    = (aDecoder.decodeObject(forKey: "descriptionText") as? String)!
-        self.value              = (aDecoder.decodeObject(forKey: "value") as? Double)!
-        self.isIncome           = (aDecoder.decodeObject(forKey: "isIncome") as? Bool)!
+        if let idDecode = aDecoder.decodeObject(forKey: "id") as? Int {
+            self.id                 = idDecode //(aDecoder.decodeObject(forKey: "id") as? Int)!
+            self.categoty           = aDecoder.decodeObject(forKey: "category") as? Category ?? Category(name: "No Category")
+            self.date               = aDecoder.decodeObject(forKey: "date") as? Date ?? Date()
+            self.name               = aDecoder.decodeObject(forKey: "name") as? String ?? "No Name"
+            self.descriptionText    = aDecoder.decodeObject(forKey: "descriptionText") as? String ?? ""
+            self.value              = aDecoder.decodeObject(forKey: "value") as? Double ?? 0.0
+            self.isIncome           = aDecoder.decodeObject(forKey: "isIncome") as? Bool ?? false
+            
+        }
     }
     
 }

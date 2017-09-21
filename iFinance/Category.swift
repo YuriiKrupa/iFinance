@@ -14,9 +14,13 @@ class Category: NSObject, NSCoding {
     static private var idCounter: Int = 0
     
     //MARK: Instance fields
-    private var id:               Int
-    private var name:             String
-    private var descriptionText:  String
+    private var id:               Int?
+    private var name:             String?
+    private var descriptionText:  String?
+    
+//    override init() {
+//        
+//    }
     
     init(name n: String, decription d: String = "Description not specified") {
         self.id              = Category.idCounter
@@ -34,19 +38,19 @@ class Category: NSObject, NSCoding {
     
     //MARK: Instance methods
     func getName() -> String {
-        return name
+        return name!
     }
     
     func getId() -> Int {
-        return id
+        return id!
     }
     
     func getDescription() -> String {
-        return descriptionText
+        return descriptionText!
     }
     
     func getInfo() -> (cName: String, cDescription: String, cId: Int) {
-        return (name, descriptionText, id)
+        return (name!, descriptionText!, id!)
     }
     
     
