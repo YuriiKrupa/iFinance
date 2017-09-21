@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F0B5AD01F72909F0073EF91 /* TransferModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0B5ACF1F72909F0073EF91 /* TransferModel.swift */; };
 		3F12DD071F62987B006F49DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F12DD061F62987B006F49DD /* AppDelegate.swift */; };
 		3F12DD091F62987B006F49DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F12DD081F62987B006F49DD /* ViewController.swift */; };
 		3F12DD0C1F62987B006F49DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F12DD0A1F62987B006F49DD /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F0B5ACF1F72909F0073EF91 /* TransferModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferModel.swift; sourceTree = "<group>"; };
 		3F12DD031F62987B006F49DD /* iFinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iFinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F12DD061F62987B006F49DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F12DD081F62987B006F49DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				3F5BC6B41F6E6D3E00F5DA8D /* Category.swift */,
 				3FEF1D9E1F693D2700CDDA7E /* Transaction.swift */,
+				3F0B5ACF1F72909F0073EF91 /* TransferModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				3F184E111F6FF82E003A3716 /* CategoryManager.swift in Sources */,
 				3F12DD0F1F62987B006F49DD /* iFinance.xcdatamodeld in Sources */,
 				3F12DD3A1F65BA2C006F49DD /* CategorySelectViewController.swift in Sources */,
+				3F0B5AD01F72909F0073EF91 /* TransferModel.swift in Sources */,
 				3F12DD071F62987B006F49DD /* AppDelegate.swift in Sources */,
 				3FEF1D9F1F693D2700CDDA7E /* Transaction.swift in Sources */,
 				3F5BC6BD1F6E708800F5DA8D /* CreateEditTransactionViewController.swift in Sources */,
