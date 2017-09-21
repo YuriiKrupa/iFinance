@@ -90,6 +90,24 @@ class TransferModel {
     func addTransaction(transaction instance:Transaction) {
         transactionsStorage.append(instance)
     }
+    func getTotalExpence() -> String {
+        var expenceTemp = 0.0
+        for i in transactionsStorage {
+            if !i.isIncomeType() {
+                expenceTemp += i.getValue()
+            }
+        }
+        return String(format:"%.2f", expenceTemp)
+    }
+    func getTotalIncome() -> String {
+        var incomeTemp = 0.0
+        for i in transactionsStorage {
+            if i.isIncomeType() {
+                incomeTemp += i.getValue()
+            }
+        }
+        return String(format:"%.2f", incomeTemp)
+    }
     
     
     //MARK: NSCoding for Transaction list

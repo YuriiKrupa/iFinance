@@ -137,6 +137,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="oiw-dh-8Nh" kind="show" id="1ZK-R1-kSP"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -150,6 +153,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="cnC-tX-rZ6"/>
                     <connections>
+                        <outlet property="lbExpeneceTotalValue" destination="JxB-oW-eCL" id="rjc-p3-ppn"/>
                         <outlet property="monthLabel" destination="447-dc-e4Z" id="WSC-Tg-vPK"/>
                         <outlet property="transactionList" destination="zem-Sz-0yY" id="URA-zF-bhO"/>
                         <segue destination="3Dy-yQ-ZJR" kind="show" identifier="toTransaction" id="ddh-nx-gfN"/>
@@ -311,6 +315,17 @@
                                     <segue destination="4i9-b5-M2H" kind="show" identifier="newCategory" id="lpD-Lw-fLy"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OED-mf-2wp">
+                                <rect key="frame" x="250" y="412" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Expence" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VlQ-6w-kIx">
+                                <rect key="frame" x="16" y="412" width="114" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="NYA-14-7Ij"/>
@@ -326,7 +341,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tDb-xl-wZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="50"/>
+            <point key="canvasLocation" x="1147.5" y="49.647887323943664"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="EDC-0b-wQb">
+            <objects>
+                <viewController id="oiw-dh-8Nh" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bpb-gk-BwJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="GOS-2N-A9X"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0PN-hh-Kst" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1187" y="796"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

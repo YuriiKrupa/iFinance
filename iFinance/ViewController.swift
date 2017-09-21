@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var transactionList: UITableView!
     @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var lbExpeneceTotalValue: UILabel!
     
     let model = TransferModel.transferModel
     
@@ -55,6 +56,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         model.decodeCategories()
         model.decodeTransactions()
         transactionList.reloadData()
+//        var balance = Double()
+//        for index in model.getTransactionList(){
+//            balance += index.getValue()
+//        }
+        lbExpeneceTotalValue.textColor = UIColor.red
+        lbExpeneceTotalValue.text = model.getTotalExpence()//String(balance)
     }
 
     override func didReceiveMemoryWarning() {
