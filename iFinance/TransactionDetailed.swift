@@ -22,6 +22,11 @@ class TransactionDetailed: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(wayToTransactionEdit))
+        
+        //TODO: finish editing feathure
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
+        descriptionTextView.layer.borderWidth = 1
         if let transaction = transactionTemp {
             idLabel.text = "Transaction id #\(String(describing: transaction.getInfo().actionId))"
             var date = Date()
@@ -35,6 +40,7 @@ class TransactionDetailed: UIViewController {
             valueLabel.text = "\(String(describing: transaction.getInfo().actionValue))"
             nameLabel.text = "\(String(describing: transaction.getInfo().actionName))"
             categoryLabel.text = "\(String(describing: transaction.getInfo().actionCategory.getInfo().cName))"
+
             descriptionTextView.text = "\(String(describing: transaction.getInfo().actionDescription))"
         }
     }
@@ -44,7 +50,7 @@ class TransactionDetailed: UIViewController {
         
     }
     
-    func loadFace() {
-        
+    @objc func wayToTransactionEdit() {
+        self.performSegue(withIdentifier: "editTransaction", sender: self)
     }
 }
