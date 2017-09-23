@@ -22,6 +22,8 @@
 		3F2007431F703A9800355455 /* CreateEditCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2007421F703A9800355455 /* CreateEditCategoryController.swift */; };
 		3F5BC6B51F6E6D3E00F5DA8D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5BC6B41F6E6D3E00F5DA8D /* Category.swift */; };
 		3F5BC6BD1F6E708800F5DA8D /* CreateEditTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5BC6BC1F6E708800F5DA8D /* CreateEditTransactionViewController.swift */; };
+		3F7DB1801F767C7300BB37A5 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7DB17F1F767C7300BB37A5 /* Report.swift */; };
+		3F7DB1821F76C09D00BB37A5 /* TransactionDetailed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7DB1811F76C09D00BB37A5 /* TransactionDetailed.swift */; };
 		3FEF1D9F1F693D2700CDDA7E /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF1D9E1F693D2700CDDA7E /* Transaction.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,8 @@
 		3F2007421F703A9800355455 /* CreateEditCategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditCategoryController.swift; sourceTree = "<group>"; };
 		3F5BC6B41F6E6D3E00F5DA8D /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		3F5BC6BC1F6E708800F5DA8D /* CreateEditTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditTransactionViewController.swift; sourceTree = "<group>"; };
+		3F7DB17F1F767C7300BB37A5 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		3F7DB1811F76C09D00BB37A5 /* TransactionDetailed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailed.swift; sourceTree = "<group>"; };
 		3FEF1D9E1F693D2700CDDA7E /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +164,7 @@
 				3F5BC6B41F6E6D3E00F5DA8D /* Category.swift */,
 				3FEF1D9E1F693D2700CDDA7E /* Transaction.swift */,
 				3F0B5ACF1F72909F0073EF91 /* TransferModel.swift */,
+				3F7DB17F1F767C7300BB37A5 /* Report.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 				3F5BC6BC1F6E708800F5DA8D /* CreateEditTransactionViewController.swift */,
 				3F184E101F6FF82E003A3716 /* CategoryManager.swift */,
 				3F2007421F703A9800355455 /* CreateEditCategoryController.swift */,
+				3F7DB1811F76C09D00BB37A5 /* TransactionDetailed.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -319,11 +325,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F7DB1801F767C7300BB37A5 /* Report.swift in Sources */,
 				3F12DD091F62987B006F49DD /* ViewController.swift in Sources */,
 				3F184E111F6FF82E003A3716 /* CategoryManager.swift in Sources */,
 				3F12DD0F1F62987B006F49DD /* iFinance.xcdatamodeld in Sources */,
 				3F12DD3A1F65BA2C006F49DD /* CategorySelectViewController.swift in Sources */,
 				3F0B5AD01F72909F0073EF91 /* TransferModel.swift in Sources */,
+				3F7DB1821F76C09D00BB37A5 /* TransactionDetailed.swift in Sources */,
 				3F12DD071F62987B006F49DD /* AppDelegate.swift in Sources */,
 				3FEF1D9F1F693D2700CDDA7E /* Transaction.swift in Sources */,
 				3F5BC6BD1F6E708800F5DA8D /* CreateEditTransactionViewController.swift in Sources */,

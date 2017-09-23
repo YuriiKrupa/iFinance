@@ -67,8 +67,8 @@ class Transaction: NSObject, NSCoding {
     func isIncomeType() -> Bool {
         return isIncome!
     }
-    func getInfo() -> (actionDate: Date, actionName: String, actionDescription:String, actionCategory:Category, actionValue:Double, actionIsIncome:Bool) {
-        return (date!, name!, descriptionText!, categoty!, value!, isIncome!)
+    func getInfo() -> (actionId: Int, actionDate: Date, actionName: String, actionDescription:String, actionCategory:Category, actionValue:Double, actionIsIncome:Bool) {
+        return (id!, date!, name!, descriptionText!, categoty!, value!, isIncome!)
     }
     
     

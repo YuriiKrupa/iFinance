@@ -15,7 +15,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var transactionList: UITableView!
     @IBOutlet weak var monthLabel: UILabel!
-    @IBOutlet weak var lbExpeneceTotalValue: UILabel!
+    @IBOutlet weak var totalValueLabel: UILabel!
+    @IBOutlet weak var expeneceTotalValueLabel: UILabel!
+    @IBOutlet weak var incomeTotalValuelLabel: UILabel!
     
     let model = TransferModel.transferModel
     
@@ -29,7 +31,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.getTransactionList().count //transactionHistory.count
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //ЗАПИТАТИ!!!!
+        //print(model.getTransactionList()[indexPath.row].getInfo().actionName)
+        performSegue(withIdentifier: "transactionDetailed", sender: model.getTransactionList()[indexPath.row])
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +48,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let nameOfMonth = dateFormatter.string(from: now)
         monthLabel.text = nameOfMonth
         
-        let btnCategoryEdit = UIBarButtonItem(title: "Categories", style: .plain, target: self, action: #selector(self.wayToCategory))
+        let btnCategoryEdit = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(self.wayToCategory))
         self.navigationItem.leftBarButtonItem = btnCategoryEdit
         let btnTransactionAdd = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.wayToTransaction))
         self.navigationItem.rightBarButtonItem  = btnTransactionAdd
         
+//        let storyboard1 = UIStoryboard(name: "Main", bundle: nil)
+//        guard let categoryManager = storyboard1.instantiateViewController(withIdentifier: "CategoryManager") as? CategoryManager else {
+//            return
+//        }
+//        
+//        navigationController?.pushViewController(categoryManager, animated: true)
         
     }
     
@@ -55,18 +67,39 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         model.decodeCategories()
         model.decodeTransactions()
+        if model.getCategoryList().isEmpty {
+            model.addCategory(name: "Food", description: "Expences on food")
+            model.addCategory(name: "Utilities", description: "Expences on food")
+            model.addCategory(name: "Cell Phone", description: "Expences on food")
+        }
         transactionList.reloadData()
 //        var balance = Double()
 //        for index in model.getTransactionList(){
 //            balance += index.getValue()
 //        }
-        lbExpeneceTotalValue.textColor = UIColor.red
-        lbExpeneceTotalValue.text = model.getTotalExpence()//String(balance)
+        totalValueLabel.textColor = UIColor.black
+        totalValueLabel.text = model.getTotal()
+        expeneceTotalValueLabel.textColor = UIColor.red
+        expeneceTotalValueLabel.text = "-" +  model.getTotalExpence()
+        incomeTotalValuelLabel.textColor = UIColor.green
+        incomeTotalValuelLabel.text = "+" + model.getTotalIncome()
+        
+        //let rep = Report.init()
+       // var repo = rep.inRange(from: Date.init(), to: Date.init(timeIntervalSinceNow: (-60*60*48)))
+       // for r in repo {print(r.getInfo().actionDate)}
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+   /*     let storyboard1 = UIStoryboard(name: "Main", bundle: nil)
+        guard let categoryManager = storyboard1.instantiateViewController(withIdentifier: "CategoryManager") as? CategoryManager else {
+            return
+        }*/
+        
+        //navigationController?.pushViewController(categoryManager, animated: true)
         
     }
     
@@ -77,6 +110,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @objc func wayToTransaction(){
         self.performSegue(withIdentifier: "toTransaction", sender:self)
     }
- 
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "transactionDetailed", let nextScene = segue.destination as? TransactionDetailed, let item = sender as? Transaction {
+            //var t = model.getTransactionList()
+            nextScene.transactionTemp = item //model.getTransactionList()[indexPath.row]
+        }
+        
+    }
 }

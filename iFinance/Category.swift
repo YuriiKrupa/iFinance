@@ -18,10 +18,6 @@ class Category: NSObject, NSCoding {
     private var name:             String?
     private var descriptionText:  String?
     
-//    override init() {
-//        
-//    }
-    
     init(name n: String, decription d: String = "Description not specified") {
         self.id              = Category.idCounter
         self.name            = n
@@ -29,7 +25,14 @@ class Category: NSObject, NSCoding {
         
         Category.idCounter  += 1
     }
-    
+    init (id:Int, name n: String, decription d: String = "Description not specified") {
+        self.id              = id
+        self.name            = n
+        self.descriptionText = d
+    }
+    func makeTemp(id:Int, name: String, decriptionTemp: String = "Description not specified") -> Category {
+        return Category.init(id: id, name: name, decription: decriptionTemp)
+    }
     
     //MARK: Class methods
     static func getCount() -> Int {
@@ -37,20 +40,18 @@ class Category: NSObject, NSCoding {
     }
     
     //MARK: Instance methods
-    func getName() -> String {
+/*    func getName() -> String {
         return name!
     }
-    
     func getId() -> Int {
         return id!
     }
-    
     func getDescription() -> String {
         return descriptionText!
     }
-    
-    func getInfo() -> (cName: String, cDescription: String, cId: Int) {
-        return (name!, descriptionText!, id!)
+*/
+    func getInfo() -> ( cId: Int, cName: String, cDescription: String) {
+        return (id!, name!, descriptionText!)
     }
     
     

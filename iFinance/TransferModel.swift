@@ -44,10 +44,40 @@ class TransferModel {
     func addCategory(category: Category) {
         categoryStorage.append(category)
     }
-    func addCategory(name: String, desctiption: String) {
-        categoryStorage.append(Category(name: name, decription: desctiption))
+    func addCategory(name: String, description: String = "") {
+        categoryStorage.append(Category(name: name, decription: description))
     }
-    
+/*    func selectGategoryIndex(byCategory category: Category) -> Int? {
+        //MARK: ToDo
+        for i in categoryStorage {
+            if i.getInfo() == category.getInfo() {
+                return categoryStorage.index(of: category)
+            }
+        }
+        return nil
+    }*/
+    func updateCategory(category: Category) -> Bool {
+       
+        if categoryStorage.contains(category) {
+           self.categoryStorage[(categoryStorage.index(of: category))!] = category
+            return true
+        }
+ /*       if selectGategoryIndex(byCategory: cat) != nil {
+            categoryStorage[categoryStorage.index(of: cat)!] = cat
+            return true
+        }
+/*        for i in categoryStorage {
+            if i.getInfo().cId == selectGategoryIndex(byCategory: cat) {
+                categoryStorage[categoryStorage.index(of: cat)!] = cat
+                return true
+            }
+        }*/*/
+        return false
+    }
+    func updateCategory(name: String, desctiption: String = "") -> Bool {
+        
+        return true
+    }
     
     
     //MARK: NSCoding for Category List
@@ -80,11 +110,15 @@ class TransferModel {
         return transactionsStorage
     }
     
-    func addTransaction(name n: String, category c: Category, value v: Double, date d: Date, ddescription descript: String, isIncomeType type: Bool = false) {
+    //func getTransactionItem(indexPath: IndexPath) -> Transaction {
+    //    return transactionsStorage[indexPath.row]
+   // }
+    
+    func addTransaction(name title: String, category c: Category, value v: Double, date d: Date = Date(), ddescription descript: String = "", isIncomeType type: Bool = false) {
         if type != false {
-            transactionsStorage.append(Transaction(tCategory: c, tDate: d, tName: n, tDescription: descript, tValue: v, type: type))
+            transactionsStorage.append(Transaction(tCategory: c, tDate: d, tName: title, tDescription: descript, tValue: v, type: type))
         } else {
-            transactionsStorage.append(Transaction(tCategory: c, tDate: d, tName: n, tDescription: descript, tValue: v))
+            transactionsStorage.append(Transaction(tCategory: c, tDate: d, tName: title, tDescription: descript, tValue: v))
         }
     }
     func addTransaction(transaction instance:Transaction) {
@@ -107,6 +141,13 @@ class TransferModel {
             }
         }
         return String(format:"%.2f", incomeTemp)
+    }
+    func getTotal() -> String {
+        var temp = 0.0
+        for i in transactionsStorage{
+            if i.isIncomeType() { temp += i.getInfo().actionValue } else { temp -= i.getInfo().actionValue }
+        }
+        return String(format:"%.2f", temp)
     }
     
     

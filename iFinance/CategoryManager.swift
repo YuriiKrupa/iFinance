@@ -23,6 +23,7 @@ class CategoryManager: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tableView.reloadData()
+        //transferModel.updateCategory(category: transferModel.getCategoryList().last!)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

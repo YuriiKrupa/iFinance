@@ -9,12 +9,15 @@
 import UIKit
 
 class CreateEditTransactionViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-   
+    
     @IBOutlet weak var nameTextField:       UITextField!
     @IBOutlet weak var categoryTextField:   UITextField!
     @IBOutlet weak var valueTextField:      UITextField!
     @IBOutlet weak var descriptionTextArea: UITextView!
     @IBOutlet weak var dateDataPicker:      UIDatePicker!
+    
+    @IBOutlet weak var transactionTypeSwitch: UISwitch!
+    
     
     let model = TransferModel.transferModel
     var record: Transaction?
@@ -47,18 +50,21 @@ class CreateEditTransactionViewController: UIViewController, UIPickerViewDelegat
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return model.getCategoryList()[row].getName() //categoryStorege[row].getName()
+        return model.getCategoryList()[row].getInfo().cName //categoryStorege[row].getName()
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        categoryTextField.text = model.getCategoryList()[row].getName() //categoryStorege[row].getName()
+        categoryTextField.text = model.getCategoryList()[row].getInfo().cName //categoryStorege[row].getName()
         recordCategory = model.getCategoryList()[row] //categoryStorege[row]
     }
     
     @objc func saveTransaction() {
         if let name = nameTextField.text, let value = valueTextField.text {
-        record = Transaction(tCategory: recordCategory!, tDate: dateDataPicker.date, tName: name, tDescription: descriptionTextArea.text, tValue: Double(value)!)
-            
+            if transactionTypeSwitch.isOn {
+                record = Transaction(tCategory: recordCategory!, tDate: dateDataPicker.date, tName: name, tDescription: descriptionTextArea.text, tValue: Double(value)!)
+            } else {
+                record = Transaction(tCategory: recordCategory!, tDate: dateDataPicker.date, tName: name, tDescription: descriptionTextArea.text, tValue: Double(value)!, type: true)
+            }
             model.addTransaction(transaction: record!)
             //transactionHistory.append(record!)
             model.codeTransactions()
