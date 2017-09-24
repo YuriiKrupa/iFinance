@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iFinance/TransferModel.swift"
-            timestampString = "527885969.445753"
+            timestampString = "527966813.478004"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
@@ -89,7 +89,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iFinance/TransactionDetailed.swift"
-            timestampString = "527939510.735601"
+            timestampString = "527966813.478206"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "13"
@@ -206,6 +206,54 @@
             endingLineNumber = "85"
             landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iFinance/CreateEditTransactionViewController.swift"
+            timestampString = "527966813.479185"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "setProperties()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iFinance.CreateEditTransactionViewController.(setProperties in _587FE8DABD383CD1CB5CAFBFC2319B05)() -&gt; ()"
+                  moduleName = "iFinance"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/student/Developer/iFinance/iFinance/CreateEditTransactionViewController.swift"
+                  timestampString = "527966117.6732"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "2701">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #1 : @autoclosure () throws -&gt; Swift.String in iFinance.CreateEditTransactionViewController.(setProperties in _587FE8DABD383CD1CB5CAFBFC2319B05)() -&gt; ()"
+                  moduleName = "iFinance"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/student/Developer/iFinance/iFinance/CreateEditTransactionViewController.swift"
+                  timestampString = "527966117.680888"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

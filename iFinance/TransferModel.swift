@@ -57,7 +57,7 @@ class TransferModel {
     }
     func updateCategory(byCategory: Category, name: String, description: String = "") -> Bool {
         if categoryStorage.contains(byCategory) {
-            // TODO: Refactor acording DRY
+            //FIXME: Refactor acording DRY
             let index = categoryStorage.index(of: byCategory)
             if description != "" {
                 categoryStorage[index!] = Category.init(id: byCategory.getInfo().cId, name: name, decription: description)
@@ -71,12 +71,12 @@ class TransferModel {
     func updateCategory(byCategoryName: String, name: String, description: String = "") -> Bool {
         for i in categoryStorage {
             if i.getInfo().cName == byCategoryName {
+                //FIXME: Refactor acording DRY
                 let index = categoryStorage.index(of: i)
                 if description != "" {
                     categoryStorage[index!] = Category.init(id: i.getInfo().cId, name: name, decription: description)
                 } else {
                     categoryStorage[index!] = Category.init(id: i.getInfo().cId, name: name, decription: categoryStorage[index!].getInfo().cDescription)
-  
                 }
                 return true
             }
@@ -110,15 +110,9 @@ class TransferModel {
     }
     
     //MARK: Transactions functions
-    
     func getTransactionList() -> [Transaction] {
         return transactionsStorage
     }
-    
-    //func getTransactionItem(indexPath: IndexPath) -> Transaction {
-    //    return transactionsStorage[indexPath.row]
-   // }
-    
     func addTransaction(name title: String, category c: Category, value v: Double, date d: Date = Date(), ddescription descript: String = "", isIncomeType type: Bool = false) {
         if type != false {
             transactionsStorage.append(Transaction(tCategory: c, tDate: d, tName: title, tDescription: descript, tValue: v, type: type))
@@ -154,7 +148,18 @@ class TransferModel {
         }
         return String(format:"%.2f", temp)
     }
-    
+    func updateTransaction(byTransaction: Transaction, name: String, category: Category, value: Double, date: Date, description: String = "", isIncome: Bool) -> Bool {
+        if transactionsStorage.contains(byTransaction) {
+            for i in transactionsStorage {
+                if i == byTransaction {
+                    //FIXME: Fix id & category setting
+                    transactionsStorage[transactionsStorage.index(of: byTransaction)!] = Transaction(id: i.getInfo().actionId, category: category, date: date, name: name, description: description, value: value, isIncome: isIncome)
+                    return true
+                }
+            }
+        }
+        return false
+    }
     
     //MARK: NSCoding for Transaction list
     func codeTransactions() {
