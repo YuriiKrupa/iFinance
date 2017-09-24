@@ -11,11 +11,8 @@ import UIKit
 class CreateEditCategoryController: UIViewController {
     
     var categoryToEditIndex: IndexPath?
-//    private var categoryItem:[]
+    let model        = TransferModel.transferModel
     var categoryList = TransferModel.transferModel.getCategoryList()
-    let model = TransferModel.transferModel
-    //var isInEdit = false
-    
     
     @IBOutlet weak var categoryIdLabel:             UILabel!
     @IBOutlet weak var categoryNameTextField:       UITextField!
@@ -24,15 +21,12 @@ class CreateEditCategoryController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryDescriptionTextArea.layer.borderWidth = 1
-       // categoryDescriptionTextArea.layer.borderColor = 
-        //categoryIdLabel.text = String(categoryList.count)//Category.getCount())
-        //isInEdit = isEditing()
+        //categoryDescriptionTextArea.layer.borderColor =
+        //MARK: Configure view apearance Edit || New
         if categoryToEditIndex != nil {
             self.title = "Edit"
             self.navigationItem.rightBarButtonItem  = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.saveCategory))
-            if let category:Category = categoryList[(categoryToEditIndex?.row)!] {
-                setFields(category: category)
-            }
+            _ = setFields(category: categoryList[(categoryToEditIndex?.row)!])
     
         } else {
             self.title = "New"
@@ -43,9 +37,6 @@ class CreateEditCategoryController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-       // isEditing()
-    
-        
     }
     
     private func setFields (category: Category) {
@@ -53,45 +44,15 @@ class CreateEditCategoryController: UIViewController {
         categoryNameTextField.text = category.getInfo().cName
         categoryDescriptionTextArea.text = category.getInfo().cDescription
     }
-    private func getFields () -> (fName: String, fDescription: String){
+    private func getFields () -> (fName: String, fDescription: String) {
         return (categoryNameTextField.text!, categoryDescriptionTextArea.text!)
-        
     }
-    
-   /* private func isEditing() -> Bool{
-        //var isEditing = false
-        if var index = categoryToEditIndex {
-            let categoryItem = categoryList[index.row] //categoryStorege[index.row].getInfo()
-            categoryIdLabel.text = "\(categoryItem.getInfo().cId)"
-            categoryNameTextField.text = categoryItem.getInfo().cName
-            categoryDescriptionTextArea.text = categoryItem.getInfo().cDescription
-            //isEditing = true
-            return true
-        }
-        return false //isEditing
-    }*/
-    
-    @objc func saveCategory() { //_ editing: Bool = false) {
+    @objc private func saveCategory() {
         if categoryToEditIndex != nil {
-            let i = categoryList[(categoryToEditIndex?.item)!]
-            let ii = Category(id: i.getInfo().cId, name: getFields().fName, decription: getFields().fDescription)
-            _ = model.updateCategory(category: ii)
-        } else {
-            model.addCategory(name: categoryNameTextField.text!, description: categoryDescriptionTextArea.text!)
-        }
-        
+            let categoryItem = categoryList[(categoryToEditIndex?.item)!]
+            _ = model.updateCategory(byCategory: categoryItem, name: getFields().fName, description: getFields().fDescription)
+        } else { model.addCategory(name: categoryNameTextField.text!, description: categoryDescriptionTextArea.text!) }
         _ = navigationController?.popViewController(animated: true)
         model.codeCategories()
-        /*if !isInEdit {
-            model.addCategory(name: categoryNameTextField.text!, description: categoryDescriptionTextArea.text!)
-            //categoryList(Category.init(name: categoryNameTextField.text!, decription: categoryDescriptionTextArea.text!))
-            //categoryStorege.append(Category.init(name: categoryNameTextField.text!, decription: categoryDescriptionTextArea.text!))
-            
-        } else {
-            print("\(model.updateCategory(category:  categoryList[categoryToEditIndex!.row]))")
-        }
-        _ = navigationController?.popViewController(animated: true)
-        model.codeCategories()
-     */
     }
 }

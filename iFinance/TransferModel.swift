@@ -47,36 +47,41 @@ class TransferModel {
     func addCategory(name: String, description: String = "") {
         categoryStorage.append(Category(name: name, decription: description))
     }
-/*    func selectGategoryIndex(byCategory category: Category) -> Int? {
-        //MARK: ToDo
+    func getGategory(byName name: String) -> Category? {
         for i in categoryStorage {
-            if i.getInfo() == category.getInfo() {
-                return categoryStorage.index(of: category)
+            if i.getInfo().cName == name {
+                return i
             }
         }
         return nil
-    }*/
-    func updateCategory(category: Category) -> Bool {
-       
-        if categoryStorage.contains(category) {
-           self.categoryStorage[(categoryStorage.index(of: category))!] = category
-            return true
-        }
- /*       if selectGategoryIndex(byCategory: cat) != nil {
-            categoryStorage[categoryStorage.index(of: cat)!] = cat
-            return true
-        }
-/*        for i in categoryStorage {
-            if i.getInfo().cId == selectGategoryIndex(byCategory: cat) {
-                categoryStorage[categoryStorage.index(of: cat)!] = cat
-                return true
+    }
+    func updateCategory(byCategory: Category, name: String, description: String = "") -> Bool {
+        if categoryStorage.contains(byCategory) {
+            // TODO: Refactor acording DRY
+            let index = categoryStorage.index(of: byCategory)
+            if description != "" {
+                categoryStorage[index!] = Category.init(id: byCategory.getInfo().cId, name: name, decription: description)
+            } else {
+                categoryStorage[index!] = Category.init(id: byCategory.getInfo().cId, name: name, decription: categoryStorage[index!].getInfo().cDescription)
             }
-        }*/*/
+            return true
+        }
         return false
     }
-    func updateCategory(name: String, desctiption: String = "") -> Bool {
-        
-        return true
+    func updateCategory(byCategoryName: String, name: String, description: String = "") -> Bool {
+        for i in categoryStorage {
+            if i.getInfo().cName == byCategoryName {
+                let index = categoryStorage.index(of: i)
+                if description != "" {
+                    categoryStorage[index!] = Category.init(id: i.getInfo().cId, name: name, decription: description)
+                } else {
+                    categoryStorage[index!] = Category.init(id: i.getInfo().cId, name: name, decription: categoryStorage[index!].getInfo().cDescription)
+  
+                }
+                return true
+            }
+        }
+        return false
     }
     
     

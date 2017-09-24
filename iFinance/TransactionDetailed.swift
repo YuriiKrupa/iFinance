@@ -28,7 +28,7 @@ class TransactionDetailed: UIViewController {
         self.navigationItem.rightBarButtonItem?.isEnabled = false
         descriptionTextView.layer.borderWidth = 1
         if let transaction = transactionTemp {
-            idLabel.text = "Transaction id #\(String(describing: transaction.getInfo().actionId))"
+            //idLabel.text = "Transaction id #\(String(describing: transaction.getInfo().actionId))"
             var date = Date()
             let dd = transaction.getInfo()
             date = dd.actionDate

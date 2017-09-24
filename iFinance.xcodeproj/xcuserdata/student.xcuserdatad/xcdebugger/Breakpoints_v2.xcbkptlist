@@ -10,38 +10,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iFinance/TransferModel.swift"
-            timestampString = "527885969.445149"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "updateCategory(category:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iFinance/TransferModel.swift"
-            timestampString = "527885969.445638"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "updateCategory(category:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iFinance/TransferModel.swift"
             timestampString = "527885969.445753"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -105,11 +73,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iFinance/ViewController.swift"
-            timestampString = "527885969.445849"
+            timestampString = "527939510.734548"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -117,11 +85,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iFinance/TransactionDetailed.swift"
-            timestampString = "527885969.446196"
+            timestampString = "527939510.735601"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "13"
@@ -130,64 +98,64 @@
             landmarkType = "3">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "iFinance.TransactionDetailed.transactionIndex.getter : Foundation.IndexPath"
+                  symbolName = "iFinance.TransactionDetailed.transactionTemp.getter : Swift.Optional&lt;iFinance.Transaction&gt;"
                   moduleName = "iFinance"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/student/Developer/iFinance/iFinance/TransactionDetailed.swift"
-                  timestampString = "527883611.586417"
+                  timestampString = "527937980.501769"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
                   endingLineNumber = "13"
-                  offsetFromSymbolStart = "130">
+                  offsetFromSymbolStart = "109">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "iFinance.TransactionDetailed.transactionIndex.setter : Foundation.IndexPath"
+                  symbolName = "iFinance.TransactionDetailed.transactionTemp.setter : Swift.Optional&lt;iFinance.Transaction&gt;"
                   moduleName = "iFinance"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/student/Developer/iFinance/iFinance/TransactionDetailed.swift"
-                  timestampString = "527883611.589142"
+                  timestampString = "527937980.511063"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
                   endingLineNumber = "13"
-                  offsetFromSymbolStart = "158">
+                  offsetFromSymbolStart = "112">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "iFinance.TransactionDetailed.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; iFinance.TransactionDetailed"
                   moduleName = "iFinance"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/student/Developer/iFinance/iFinance/TransactionDetailed.swift"
-                  timestampString = "527883611.602319"
+                  timestampString = "527937980.515121"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
                   endingLineNumber = "13"
-                  offsetFromSymbolStart = "46">
+                  offsetFromSymbolStart = "77">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "iFinance.TransactionDetailed.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;iFinance.TransactionDetailed&gt;"
                   moduleName = "iFinance"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/student/Developer/iFinance/iFinance/TransactionDetailed.swift"
-                  timestampString = "527883611.605271"
+                  timestampString = "527937980.518008"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
                   endingLineNumber = "13"
-                  offsetFromSymbolStart = "21">
+                  offsetFromSymbolStart = "46">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -199,12 +167,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iFinance/ViewController.swift"
-            timestampString = "527885969.447325"
+            timestampString = "527939510.735675"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iFinance/ViewController.swift"
+            timestampString = "527939510.736196"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iFinance/ViewController.swift"
+            timestampString = "527939510.736666"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

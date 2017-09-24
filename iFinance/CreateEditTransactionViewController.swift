@@ -27,10 +27,12 @@ class CreateEditTransactionViewController: UIViewController, UIPickerViewDelegat
         super.viewDidLoad()
         
         self.title = "Transaction"
-        
+        descriptionTextArea.layer.borderWidth = 1
+        //descriptionTextArea.layer.borderColor = UIColor.lightGray as! CGColor
         let categoryPicker = UIPickerView()
         categoryPicker.delegate = self
         categoryPicker.dataSource = self
+        categoryPicker.backgroundColor = UIColor.white
         self.categoryTextField.inputAccessoryView = categoryPicker
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.saveTransaction))
     }
