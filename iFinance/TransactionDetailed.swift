@@ -25,10 +25,10 @@ class TransactionDetailed: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(wayToTransactionEdit))
         
         //TODO: finish editing feathure
-        self.navigationItem.rightBarButtonItem?.isEnabled = false
-        descriptionTextView.layer.borderWidth = 1
+        //self.navigationItem.rightBarButtonItem?.isEnabled = false
+        //descriptionTextView.layer.borderWidth = 1
         if let transaction = transactionTemp {
-            idLabel.text = "Transaction id #\(String(describing: transaction.getInfo().actionId))"
+            //idLabel.text = "Transaction id #\(String(describing: transaction.getInfo().actionId))"
             var date = Date()
             let dd = transaction.getInfo()
             date = dd.actionDate
@@ -37,11 +37,11 @@ class TransactionDetailed: UIViewController {
             let dateStr = dateFormater.string(from: date)
             dateLabel.text =  dateStr
             if (transaction.getInfo().actionIsIncome) { valueLabel.textColor = UIColor.green } else { valueLabel.textColor = UIColor.red }
-            valueLabel.text = "\(String(describing: transaction.getInfo().actionValue))"
-            nameLabel.text = "\(String(describing: transaction.getInfo().actionName))"
-            categoryLabel.text = "\(String(describing: transaction.getInfo().actionCategory.getInfo().cName))"
+            valueLabel.text = String(transaction.getInfo().actionValue)
+            nameLabel.text = transaction.getInfo().actionName
+            categoryLabel.text =  transaction.getInfo().actionCategory.getInfo().cName
 
-            descriptionTextView.text = "\(String(describing: transaction.getInfo().actionDescription))"
+            descriptionTextView.text = transaction.getInfo().actionDescription
         }
     }
     
@@ -51,6 +51,15 @@ class TransactionDetailed: UIViewController {
     }
     
     @objc func wayToTransactionEdit() {
-        self.performSegue(withIdentifier: "editTransaction", sender: self)
+        //if let transaction = transactionTemp {
+            self.performSegue(withIdentifier: "editTransaction", sender: self)
+        //}
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editTransaction", let nextScene = segue.destination as? CreateEditTransactionViewController, let transactionItem = self.transactionTemp {
+            nextScene.record = transactionItem
+        }
+        
     }
 }

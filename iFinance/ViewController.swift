@@ -13,23 +13,22 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var transactionList: UITableView!
-    @IBOutlet weak var monthLabel: UILabel!
-    @IBOutlet weak var totalValueLabel: UILabel!
+    @IBOutlet weak var transactionList:         UITableView!
+    @IBOutlet weak var monthLabel:              UILabel!
+    @IBOutlet weak var totalValueLabel:         UILabel!
     @IBOutlet weak var expeneceTotalValueLabel: UILabel!
-    @IBOutlet weak var incomeTotalValuelLabel: UILabel!
+    @IBOutlet weak var incomeTotalValuelLabel:  UILabel!
     
     let model = TransferModel.transferModel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableReusableCell")!
-        let transactionInfo = model.getTransactionList()[indexPath.row].getInfo() //transactionHistory[indexPath.row].getInfo()
+        let transactionInfo = model.getTransactionList()[indexPath.row].getInfo()
         cell.textLabel?.text = transactionInfo.actionName
         return cell
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.getTransactionList().count //transactionHistory.count
+        return model.getTransactionList().count
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //ЗАПИТАТИ!!!!
@@ -40,8 +39,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         self.title = "iFinance"
-
         let now = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM YYYY"
@@ -73,21 +72,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             model.addCategory(name: "Cell Phone", description: "Expences on food")
         }
         transactionList.reloadData()
-//        var balance = Double()
-//        for index in model.getTransactionList(){
-//            balance += index.getValue()
-//        }
+        
         totalValueLabel.textColor = UIColor.black
         totalValueLabel.text = model.getTotal()
         expeneceTotalValueLabel.textColor = UIColor.red
-        expeneceTotalValueLabel.text = "-" +  model.getTotalExpence()
+        expeneceTotalValueLabel.text = "- " +  model.getTotalExpence()
         incomeTotalValuelLabel.textColor = UIColor.green
-        incomeTotalValuelLabel.text = "+" + model.getTotalIncome()
+        incomeTotalValuelLabel.text = "+ " + model.getTotalIncome()
         
         //let rep = Report.init()
-       // var repo = rep.inRange(from: Date.init(), to: Date.init(timeIntervalSinceNow: (-60*60*48)))
-       // for r in repo {print(r.getInfo().actionDate)}
-        
+        //TODO: fix report
+        let repo = Report.init().inRange(from: Date.init(timeIntervalSinceNow: (3600*72)), to: Date.init())
+        for r in repo {print("\(r.getInfo().actionDate) \(r.getInfo().actionName)")}
+        print("List")
+        for i in model.getTransactionList() {print("\(i.getDate())  \(i.getName())")}
     }
 
     override func didReceiveMemoryWarning() {

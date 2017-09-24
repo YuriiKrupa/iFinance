@@ -10,11 +10,13 @@ import Foundation
 
 class Transaction: NSObject, NSCoding {
     
-    //MARK: Class fields
+    //MARK: Class properties
+    //FIXME: Id count losing when application restart
     static private var idCounter:Int = 0
     
-    //MARK: Instance fields
+    //MARK: Instance properties
     private var id:              Int?
+    //FIXME: After category editing transactin will lose connection and will store missing category
     private var categoty:        Category?
     private var date:            Date?
     private var name:            String?
@@ -32,6 +34,15 @@ class Transaction: NSObject, NSCoding {
         self.isIncome           = isIncome
         
         Transaction.idCounter  += 1
+    }
+    init(id: Int, category: Category, date: Date, name: String, description: String, value: Double, isIncome: Bool = false) {
+        self.id                 = id
+        self.categoty           = category
+        self.date               = date
+        self.name               = name
+        self.descriptionText    = description
+        self.value              = value
+        self.isIncome           = isIncome
     }
     
     //MARK: Class methods
@@ -87,10 +98,10 @@ class Transaction: NSObject, NSCoding {
         if let idDecode = aDecoder.decodeObject(forKey: "id") as? Int {
             self.id                 = idDecode //(aDecoder.decodeObject(forKey: "id") as? Int)!
             self.categoty           = aDecoder.decodeObject(forKey: "category") as? Category ?? Category(name: "No Category")
-            self.date               = aDecoder.decodeObject(forKey: "date") as? Date ?? Date()
-            self.name               = aDecoder.decodeObject(forKey: "name") as? String ?? "No Name"
+            self.date               = aDecoder.decodeObject(forKey: "date")     as? Date ?? Date()
+            self.name               = aDecoder.decodeObject(forKey: "name")     as? String ?? "No Name"
             self.descriptionText    = aDecoder.decodeObject(forKey: "descriptionText") as? String ?? ""
-            self.value              = aDecoder.decodeObject(forKey: "value") as? Double ?? 0.0
+            self.value              = aDecoder.decodeObject(forKey: "value")    as? Double ?? 0.0
             self.isIncome           = aDecoder.decodeObject(forKey: "isIncome") as? Bool ?? false
             
         }
