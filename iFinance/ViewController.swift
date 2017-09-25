@@ -49,15 +49,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let btnCategoryEdit = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(self.wayToCategory))
         self.navigationItem.leftBarButtonItem = btnCategoryEdit
+        let btnShowChart = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(self.wayToPieChart))
         let btnTransactionAdd = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.wayToTransaction))
-        self.navigationItem.rightBarButtonItem  = btnTransactionAdd
-        
+        self.navigationItem.rightBarButtonItems = [btnTransactionAdd, btnShowChart]
 //        let storyboard1 = UIStoryboard(name: "Main", bundle: nil)
 //        guard let categoryManager = storyboard1.instantiateViewController(withIdentifier: "CategoryManager") as? CategoryManager else {
 //            return
 //        }
 //        
-//        navigationController?.pushViewController(categoryManager, animated: true)
+//        _ = navigationController?.pushViewController(categoryManager, animated: true)
         
     }
     
@@ -76,9 +76,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         totalValueLabel.textColor = UIColor.black
         totalValueLabel.text = model.getTotal()
         expeneceTotalValueLabel.textColor = UIColor.red
-        expeneceTotalValueLabel.text = "- " +  model.getTotalExpence()
+        expeneceTotalValueLabel.text = "-" +  model.getTotalExpence()
         incomeTotalValuelLabel.textColor = UIColor.green
-        incomeTotalValuelLabel.text = "+ " + model.getTotalIncome()
+        incomeTotalValuelLabel.text = "+" + model.getTotalIncome()
         
         //let rep = Report.init()
         //TODO: fix report
@@ -108,11 +108,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @objc func wayToTransaction(){
         self.performSegue(withIdentifier: "toTransaction", sender:self)
     }
+    @objc func wayToPieChart() {
+        self.performSegue(withIdentifier: "toPieChart", sender: self)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "transactionDetailed", let nextScene = segue.destination as? TransactionDetailed, let item = sender as? Transaction {
-            //var t = model.getTransactionList()
-            nextScene.transactionTemp = item //model.getTransactionList()[indexPath.row]
+            nextScene.transactionTemp = item
         }
         
     }

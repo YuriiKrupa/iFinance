@@ -85,7 +85,7 @@ class CreateEditTransactionViewController: UIViewController, UIPickerViewDelegat
             }
         } else {
             //FIXME: bug - unwrapping an Optional value for test, test2, test4 transactions
-            _ = model.updateTransaction(byTransaction: record!, name: nameTextField.text!, category: model.getGategory(byName: categoryTextField.text!)!, value: Double(valueTextField.text!)!, date: dateDataPicker.date, description: descriptionTextArea.text! , isIncome: !transactionTypeSwitch.isOn)
+            _ = model.updateTransaction(byTransaction: record!, name: nameTextField.text!, category: model.getGategory(byName: categoryTextField.text!)!, value: Double(valueTextField.text!)!, date: dateDataPicker.date, description: descriptionTextArea.text ?? "" , isIncome: !transactionTypeSwitch.isOn)
         }
         model.codeTransactions()
         _ = navigationController?.popViewController(animated: true)

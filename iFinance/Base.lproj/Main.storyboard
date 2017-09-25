@@ -103,7 +103,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7wG-2D-ir1">
+                            <tabBar hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7wG-2D-ir1">
                                 <rect key="frame" x="0.0" y="519" width="320" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -153,6 +153,7 @@
                         <segue destination="3Dy-yQ-ZJR" kind="show" identifier="toTransaction" id="ddh-nx-gfN"/>
                         <segue destination="skM-Zu-9VU" kind="show" identifier="toCategoryManager" id="cYP-nO-9nr"/>
                         <segue destination="oiw-dh-8Nh" kind="show" identifier="transactionDetailed" id="R3b-4T-cpz"/>
+                        <segue destination="xya-vr-n6S" kind="show" identifier="toPieChart" id="6BL-IT-TfJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m9S-io-woX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -338,6 +339,21 @@
             </objects>
             <point key="canvasLocation" x="1155" y="423"/>
         </scene>
+        <!--Chart-->
+        <scene sceneID="I5N-Mp-xef">
+            <objects>
+                <viewController title="Chart" id="xya-vr-n6S" customClass="ChartViewController" customModule="iFinance" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uTJ-1E-xKe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="nF1-hr-xeb"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VaZ-xy-JZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-684.375" y="791.19718309859161"/>
+        </scene>
         <!--Transaction Detailed-->
         <scene sceneID="EDC-0b-wQb">
             <objects>
@@ -422,7 +438,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ddh-nx-gfN"/>
+        <segue reference="SA9-x4-x1W"/>
         <segue reference="lpD-Lw-fLy"/>
     </inferredMetricsTieBreakers>
 </document>
