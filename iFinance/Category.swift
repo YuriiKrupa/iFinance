@@ -14,23 +14,23 @@ class Category: NSObject, NSCoding {
     static private var idCounter: Int = 0
     
     //MARK: Instance fields
-    private var id:               Int?
+    private var id:               UUID?
     private var name:             String?
     private var descriptionText:  String?
     
     init(name n: String, decription d: String = "Description not specified") {
-        self.id              = Category.idCounter
+        self.id              = UUID.init()
         self.name            = n
         self.descriptionText = d
         
         Category.idCounter  += 1
     }
-    init(id:Int, name n: String, decription d: String = "Description not specified") {
+    init(id:UUID, name n: String, decription d: String = "Description not specified") {
         self.id              = id
         self.name            = n
         self.descriptionText = d
     }
-    func makeTemp(id:Int, name: String, decriptionTemp: String = "Description not specified") -> Category {
+    func makeTemp(id:UUID, name: String, decriptionTemp: String = "Description not specified") -> Category {
         return Category.init(id: id, name: name, decription: decriptionTemp)
     }
     
@@ -39,7 +39,7 @@ class Category: NSObject, NSCoding {
         return idCounter
     }
     
-    func getInfo() -> ( cId: Int, cName: String, cDescription: String) {
+    func getInfo() -> ( cId: UUID, cName: String, cDescription: String) {
         return (id!, name!, descriptionText!)
     }
     
@@ -51,7 +51,7 @@ class Category: NSObject, NSCoding {
     }
     
     required init? (coder aDecoder: NSCoder) {
-        if let idDecode = aDecoder.decodeObject(forKey: "id") as? Int {
+        if let idDecode = aDecoder.decodeObject(forKey: "id") as? UUID {
             self.id              = idDecode //(aDecoder.decodeObject(forKey: "id") as? Int)!
             self.name            = aDecoder.decodeObject(forKey: "name") as? String ?? "No Name"
             self.descriptionText = aDecoder.decodeObject(forKey: "descriptionText") as? String ?? "No description"

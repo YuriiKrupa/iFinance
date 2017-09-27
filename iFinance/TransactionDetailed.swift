@@ -23,6 +23,7 @@ class TransactionDetailed: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Transaction"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(wayToTransactionEdit))
         
         //TODO: finish editing feathure
@@ -55,6 +56,7 @@ class TransactionDetailed: UIViewController {
     func setUpView() {
         if let transaction = transactionTemp {
             //idLabel.text = "Transaction id #\(String(describing: transaction.getInfo().actionId))"
+            idLabel.text = "\(transaction.getInfo().actionId)"
             var date = Date()
             let dd = transaction.getInfo()
             date = dd.actionDate

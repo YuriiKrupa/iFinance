@@ -93,33 +93,12 @@ class TransferModel {
     func removeCategory(byCategory: Category?) -> Bool {
         if let index = categoryStorage.index(of: byCategory!) {
             categoryStorage.remove(at: index)
-//            codeCategories()
             self.codeCategories()
             return true
         }
         return false
     }
-//        if let category = byCategory {
-//            if let index = categoryStorage.index(of: category) {
-//                categoryStorage.remove(at: index)
-//                return true
-//            }
-//        }
-        
-//        func removeCategory(category: Category) {        categoryStorage.remove(at: (categoryStorage.index(of: category)!))        codeCategories()    }
-//        } else if let name = byName {
-//            for i in categoryStorage{
-//                if i.getInfo().cName == name {
-//                    if let index = categoryStorage.index(of: i) {
-//                        categoryStorage.remove(at: index)
-//                        return true
-//                    }
-//                }
-//            }
-//        }
-//        return false
-//    }
-    
+
     
     //MARK: NSCoding for Category List
     func codeCategories(){
@@ -163,8 +142,8 @@ class TransferModel {
     func getTotalExpence() -> String {
         var expenceTemp = 0.0
         for i in transactionsStorage {
-            if !i.isIncomeType() {
-                expenceTemp += i.getValue()
+            if !i.getInfo().actionIsIncome {
+                expenceTemp += i.getInfo().actionValue
             }
         }
         return String(format:"%.2f", expenceTemp)
@@ -172,8 +151,8 @@ class TransferModel {
     func getTotalIncome() -> String {
         var incomeTemp = 0.0
         for i in transactionsStorage {
-            if i.isIncomeType() {
-                incomeTemp += i.getValue()
+            if i.getInfo().actionIsIncome {
+                incomeTemp += i.getInfo().actionValue
             }
         }
         return String(format:"%.2f", incomeTemp)
@@ -181,7 +160,7 @@ class TransferModel {
     func getTotal() -> String {
         var temp = 0.0
         for i in transactionsStorage{
-            if i.isIncomeType() { temp += i.getInfo().actionValue } else { temp -= i.getInfo().actionValue }
+            if i.getInfo().actionIsIncome { temp += i.getInfo().actionValue } else { temp -= i.getInfo().actionValue }
         }
         return String(format:"%.2f", temp)
     }
@@ -199,22 +178,37 @@ class TransferModel {
         return false
     }
     //FIXME: make it
-    func removeTransaction(byTransaction: Transaction?, byName: String?) -> Bool {
+    func removeTransaction(byTransaction: Transaction? = nil, byName: String? = nil) -> Bool {
+//        if let transaction = byTransaction {
+//            if let index = transactionsStorage.index(of: transaction) {
+//                transactionsStorage.remove(at: index)
+//                return true
+//            }
+//        } else if let name = byName {
+//            for i in transactionsStorage{
+//                if i.getInfo().actionName == name {
+//                    if let index = transactionsStorage.index(of: i) {
+//                        transactionsStorage.remove(at: index)
+//                        return true
+//                    }
+//                }
+//            }
+//        }
         if let transaction = byTransaction {
-            if let index = transactionsStorage.index(of: transaction) {
-                transactionsStorage.remove(at: index)
-                return true
-            }
-        } else if let name = byName {
-            for i in transactionsStorage{
-                if i.getInfo().actionName == name {
-                    if let index = transactionsStorage.index(of: i) {
-                        transactionsStorage.remove(at: index)
-                        return true
-                    }
+            self.transactionsStorage.remove(at: transactionsStorage.index(of: transaction)!)
+            self.codeTransactions()
+            return true
+        }
+        if let name = byName {
+            for index in transactionsStorage {
+                if index.getInfo().actionName == name {
+                    self.transactionsStorage.remove(at: transactionsStorage.index(of: index)!)
+                    self.codeTransactions()
+                    return true
                 }
             }
         }
+        
         return false
     }
     

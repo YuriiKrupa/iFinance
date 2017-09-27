@@ -23,10 +23,11 @@ class ChartViewController: UIViewController {
         var dataStr = [String]()
         var dataValue = [Double]()
         for i in model.getTransactionList() {
-            if !dataStr.contains(i.getCagegory().getInfo().cName) { dataStr.append(i.getCagegory().getInfo().cName)
-                dataValue.append(i.getValue())
+            if !dataStr.contains(i.getInfo().actionCategory.getInfo().cName) {
+                dataStr.append(i.getInfo().actionCategory.getInfo().cName)
+                dataValue.append(i.getInfo().actionValue)
             } else {
-                dataValue[dataStr.index(of: i.getCagegory().getInfo().cName)!] += i.getValue()
+                dataValue[dataStr.index(of: i.getInfo().actionCategory.getInfo().cName)!] += i.getInfo().actionValue
             }
         }
         

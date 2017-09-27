@@ -15,7 +15,7 @@ class Transaction: NSObject, NSCoding {
     static private var idCounter:Int = 0
     
     //MARK: Instance properties
-    private var id:              Int?
+    private var id:              UUID?
     //FIXME: After category editing transactin will lose connection and will store missing category
     private var categoty:        Category?
     private var date:            Date?
@@ -25,7 +25,7 @@ class Transaction: NSObject, NSCoding {
     private var isIncome:        Bool?
     
     init(tCategory cat: Category, tDate d: Date, tName n: String, tDescription descript: String, tValue val:Double, type isIncome:Bool = false) {
-        self.id                 = Transaction.idCounter
+        self.id                 = UUID.init()//Transaction.idCounter
         self.categoty           = cat
         self.date               = d
         self.name               = n
@@ -35,7 +35,7 @@ class Transaction: NSObject, NSCoding {
         
         Transaction.idCounter  += 1
     }
-    init(id: Int, category: Category, date: Date, name: String, description: String, value: Double, isIncome: Bool = false) {
+    init(id: UUID, category: Category, date: Date, name: String, description: String, value: Double, isIncome: Bool = false) {
         self.id                 = id
         self.categoty           = category
         self.date               = date
@@ -51,34 +51,34 @@ class Transaction: NSObject, NSCoding {
     }
     
     //MARK: Instance methods
-    func getId() -> Int {
-        return id!
-    }
-    
-    func getCagegory() -> Category {
-        return categoty!
-    }
-    
-    func getDate() -> Date {
-        return date!
-    }
-    
-    func getName() -> String {
-        return name!
-    }
-    
-    func getDescription() -> String {
-        return descriptionText!
-    }
-    
-    func getValue() -> Double {
-        return value!
-    }
-    
-    func isIncomeType() -> Bool {
-        return isIncome!
-    }
-    func getInfo() -> (actionId: Int, actionDate: Date, actionName: String, actionDescription:String, actionCategory:Category, actionValue:Double, actionIsIncome:Bool) {
+//    func getId() -> Int {
+//        return id!
+//    }
+//
+//    func getCagegory() -> Category {
+//        return categoty!
+//    }
+//
+//    func getDate() -> Date {
+//        return date!
+//    }
+//
+//    func getName() -> String {
+//        return name!
+//    }
+//
+//    func getDescription() -> String {
+//        return descriptionText!
+//    }
+//
+//    func getValue() -> Double {
+//        return value!
+//    }
+//
+//    func isIncomeType() -> Bool {
+//        return isIncome!
+//    }
+    func getInfo() -> (actionId: UUID, actionDate: Date, actionName: String, actionDescription:String, actionCategory:Category, actionValue:Double, actionIsIncome:Bool) {
         return (id!, date!, name!, descriptionText!, categoty!, value!, isIncome!)
     }
     
@@ -95,14 +95,14 @@ class Transaction: NSObject, NSCoding {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        if let idDecode = aDecoder.decodeObject(forKey: "id") as? Int {
+        if let idDecode = aDecoder.decodeObject(forKey: "id") as? UUID {
             self.id                 = idDecode //(aDecoder.decodeObject(forKey: "id") as? Int)!
-            self.categoty           = aDecoder.decodeObject(forKey: "category") as? Category ?? Category(name: "No Category")
-            self.date               = aDecoder.decodeObject(forKey: "date")     as? Date ?? Date()
-            self.name               = aDecoder.decodeObject(forKey: "name")     as? String ?? "No Name"
-            self.descriptionText    = aDecoder.decodeObject(forKey: "descriptionText") as? String ?? ""
-            self.value              = aDecoder.decodeObject(forKey: "value")    as? Double ?? 0.0
-            self.isIncome           = aDecoder.decodeObject(forKey: "isIncome") as? Bool ?? false
+            self.categoty           = aDecoder.decodeObject(forKey: "category")         as? Category        ?? Category(name: "No Category")
+            self.date               = aDecoder.decodeObject(forKey: "date")             as? Date            ?? Date()
+            self.name               = aDecoder.decodeObject(forKey: "name")             as? String          ?? "No Name"
+            self.descriptionText    = aDecoder.decodeObject(forKey: "descriptionText")  as? String          ?? ""
+            self.value              = aDecoder.decodeObject(forKey: "value")            as? Double          ?? 0.0
+            self.isIncome           = aDecoder.decodeObject(forKey: "isIncome")         as? Bool            ?? false
             
         }
     }

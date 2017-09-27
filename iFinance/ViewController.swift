@@ -8,9 +8,6 @@
 
 import UIKit
 
-//var categoryStorege = [Category]()//: [Category] = [Category.init(name: "Food"), Category.init(name: "Utilities"), Category.init(name: "Cell phone")]
-//var transactionHistory = [Transaction]()
-
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var transactionList:         UITableView!
@@ -35,18 +32,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //print(model.getTransactionList()[indexPath.row].getInfo().actionName)
         performSegue(withIdentifier: "transactionDetailed", sender: model.getTransactionList()[indexPath.row])
     }
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let removeOpt = UITableViewRowAction(style: .destructive, title: "Remove") { action, index in
+            print("Btn remove tapped")
+            //FIXME: add method to model
+            print (indexPath.row)
+            //print(self.transferModel.removeCategory(byCategory: (self.transferModel.getCategoryList()[(indexPath.row)])))
+            print(self.model.removeTransaction(byTransaction: (self.model.getTransactionList()[(indexPath.row)])))
+            self.transactionList.reloadData()
+            self.setUpView()
+        }
+        removeOpt.backgroundColor = UIColor.red
+        
+        return [removeOpt]
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         self.title = "iFinance"
-        let now = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM YYYY"
-        let nameOfMonth = dateFormatter.string(from: now)
-        monthLabel.text = nameOfMonth
-        
+        self.setUpView()
         let btnCategoryEdit = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(self.wayToCategory))
         self.navigationItem.leftBarButtonItem = btnCategoryEdit
         let btnShowChart = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(self.wayToPieChart))
@@ -74,20 +80,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             model.addCategory(name: "Cell Phone", description: "Expences on food")
         }
         transactionList.reloadData()
+        self.setUpView()
         
-        totalValueLabel.textColor = UIColor.black
-        totalValueLabel.text = model.getTotal()
-        expeneceTotalValueLabel.textColor = UIColor.red
-        expeneceTotalValueLabel.text = "-" +  model.getTotalExpence()
-        incomeTotalValuelLabel.textColor = UIColor.green
-        incomeTotalValuelLabel.text = "+" + model.getTotalIncome()
-        
+//        totalValueLabel.textColor = UIColor.black
+//        totalValueLabel.text = model.getTotal()
+//        expeneceTotalValueLabel.textColor = UIColor.red
+//        expeneceTotalValueLabel.text = "-" +  model.getTotalExpence()
+//        incomeTotalValuelLabel.textColor = UIColor.green
+//        incomeTotalValuelLabel.text = "+" + model.getTotalIncome()
+//
         //let rep = Report.init()
         //TODO: fix report
-        let repo = Report.init().inRange(from: Date.init(timeIntervalSinceNow: (3600*72)), to: Date.init())
-        for r in repo {print("\(r.getInfo().actionDate) \(r.getInfo().actionName)")}
-        print("List")
-        for i in model.getTransactionList() {print("\(i.getDate())  \(i.getName())")}
+//        let repo = Report.init().inRange(from: Date.init(timeIntervalSinceNow: (3600*72)), to: Date.init())
+//        for r in repo {print("\(r.getInfo().actionDate) \(r.getInfo().actionName)")}
+//        print("List")
+//        for i in model.getTransactionList() {print("\(i.getDate())  \(i.getName())")}
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,6 +110,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    func setUpView() {
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM YYYY"
+        let nameOfMonth = dateFormatter.string(from: now)
+        monthLabel.text = nameOfMonth
+        
+        totalValueLabel.textColor = UIColor.black
+        totalValueLabel.text = model.getTotal()
+        expeneceTotalValueLabel.textColor = UIColor.red
+        expeneceTotalValueLabel.text = "-" +  model.getTotalExpence()
+        incomeTotalValuelLabel.textColor = UIColor.green
+        incomeTotalValuelLabel.text = "+" + model.getTotalIncome()
+    }
   
     @objc func wayToCategory(){
         self.performSegue(withIdentifier: "toCategoryManager", sender: self)
