@@ -39,10 +39,12 @@ class CategoryManager: UITableViewController {
         let removeOpt = UITableViewRowAction(style: .destructive, title: "Remove") { action, index in
             print("Btn remove tapped")
             //FIXME: add method to model
-            //transferModel.getCategoryList().remove(at: indexPath.row)
-            tableView.reloadData()
+            print (indexPath.row)
+            print(self.transferModel.removeCategory(byCategory: (self.transferModel.getCategoryList()[(indexPath.row)])))
+            self.tableView.reloadData()
         }
         removeOpt.backgroundColor = UIColor.red
+        
         return [removeOpt]
     }
     

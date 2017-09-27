@@ -32,20 +32,25 @@ class TransferModel {
             self.categoriesPath   = nil
             self.transactionsPath = nil
         }
+        self.decodeCategories()
+        self.decodeTransactions()
         
     }
     
     //MARK: Categories functions
     
     func getCategoryList() -> [Category]{
+        self.decodeCategories()
         return categoryStorage
     }
     
     func addCategory(category: Category) {
         categoryStorage.append(category)
+        self.codeCategories()
     }
     func addCategory(name: String, description: String = "") {
         categoryStorage.append(Category(name: name, decription: description))
+        self.codeCategories()
     }
     func getGategory(byName name: String) -> Category? {
         for i in categoryStorage {
@@ -64,6 +69,7 @@ class TransferModel {
             } else {
                 categoryStorage[index!] = Category.init(id: byCategory.getInfo().cId, name: name, decription: categoryStorage[index!].getInfo().cDescription)
             }
+            self.codeCategories()
             return true
         }
         return false
@@ -78,11 +84,41 @@ class TransferModel {
                 } else {
                     categoryStorage[index!] = Category.init(id: i.getInfo().cId, name: name, decription: categoryStorage[index!].getInfo().cDescription)
                 }
+                self.codeCategories()
                 return true
             }
         }
         return false
     }
+    func removeCategory(byCategory: Category?) -> Bool {
+        if let index = categoryStorage.index(of: byCategory!) {
+            categoryStorage.remove(at: index)
+//            codeCategories()
+            self.codeCategories()
+            return true
+        }
+        return false
+    }
+//        if let category = byCategory {
+//            if let index = categoryStorage.index(of: category) {
+//                categoryStorage.remove(at: index)
+//                return true
+//            }
+//        }
+        
+//        func removeCategory(category: Category) {        categoryStorage.remove(at: (categoryStorage.index(of: category)!))        codeCategories()    }
+//        } else if let name = byName {
+//            for i in categoryStorage{
+//                if i.getInfo().cName == name {
+//                    if let index = categoryStorage.index(of: i) {
+//                        categoryStorage.remove(at: index)
+//                        return true
+//                    }
+//                }
+//            }
+//        }
+//        return false
+//    }
     
     
     //MARK: NSCoding for Category List
@@ -99,9 +135,7 @@ class TransferModel {
     }
     
     func decodeCategories(){
-        if categoriesPath != nil,
-            let categoryList = NSKeyedUnarchiver.unarchiveObject(withFile: categoriesPath!) as? [Category]
-        {
+        if categoriesPath != nil, let categoryList = NSKeyedUnarchiver.unarchiveObject(withFile: categoriesPath!) as? [Category] {
             categoryStorage = categoryList
         } else {
             print("File not found")
@@ -111,6 +145,7 @@ class TransferModel {
     
     //MARK: Transactions functions
     func getTransactionList() -> [Transaction] {
+        self.decodeTransactions()
         return transactionsStorage
     }
     func addTransaction(name title: String, category c: Category, value v: Double, date d: Date = Date(), ddescription descript: String = "", isIncomeType type: Bool = false) {
@@ -119,9 +154,11 @@ class TransferModel {
         } else {
             transactionsStorage.append(Transaction(tCategory: c, tDate: d, tName: title, tDescription: descript, tValue: v))
         }
+        self.codeTransactions()
     }
     func addTransaction(transaction instance:Transaction) {
         transactionsStorage.append(instance)
+        self.codeTransactions()
     }
     func getTotalExpence() -> String {
         var expenceTemp = 0.0
@@ -154,7 +191,27 @@ class TransferModel {
                 if i == byTransaction {
                     //FIXME: Fix id & category setting
                     transactionsStorage[transactionsStorage.index(of: byTransaction)!] = Transaction(id: i.getInfo().actionId, category: category, date: date, name: name, description: description, value: value, isIncome: isIncome)
+                    self.codeTransactions()
                     return true
+                }
+            }
+        }
+        return false
+    }
+    //FIXME: make it
+    func removeTransaction(byTransaction: Transaction?, byName: String?) -> Bool {
+        if let transaction = byTransaction {
+            if let index = transactionsStorage.index(of: transaction) {
+                transactionsStorage.remove(at: index)
+                return true
+            }
+        } else if let name = byName {
+            for i in transactionsStorage{
+                if i.getInfo().actionName == name {
+                    if let index = transactionsStorage.index(of: i) {
+                        transactionsStorage.remove(at: index)
+                        return true
+                    }
                 }
             }
         }

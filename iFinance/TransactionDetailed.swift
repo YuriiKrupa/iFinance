@@ -20,6 +20,7 @@ class TransactionDetailed: UIViewController {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(wayToTransactionEdit))
@@ -27,6 +28,31 @@ class TransactionDetailed: UIViewController {
         //TODO: finish editing feathure
         //self.navigationItem.rightBarButtonItem?.isEnabled = false
         //descriptionTextView.layer.borderWidth = 1
+//        if let transaction = transactionTemp {
+//            //idLabel.text = "Transaction id #\(String(describing: transaction.getInfo().actionId))"
+//            var date = Date()
+//            let dd = transaction.getInfo()
+//            date = dd.actionDate
+//            let dateFormater = DateFormatter()
+//            dateFormater.dateFormat = "MMMM dd YYYY HH:MM"
+//            let dateStr = dateFormater.string(from: date)
+//            dateLabel.text =  dateStr
+//            if (transaction.getInfo().actionIsIncome) { valueLabel.textColor = UIColor.green } else { valueLabel.textColor = UIColor.red }
+//            valueLabel.text = String(transaction.getInfo().actionValue)
+//            nameLabel.text = transaction.getInfo().actionName
+//            categoryLabel.text =  transaction.getInfo().actionCategory.getInfo().cName
+//
+//            descriptionTextView.text = transaction.getInfo().actionDescription
+//        }
+        setUpView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setUpView()
+    }
+    
+    func setUpView() {
         if let transaction = transactionTemp {
             //idLabel.text = "Transaction id #\(String(describing: transaction.getInfo().actionId))"
             var date = Date()
@@ -40,14 +66,9 @@ class TransactionDetailed: UIViewController {
             valueLabel.text = String(transaction.getInfo().actionValue)
             nameLabel.text = transaction.getInfo().actionName
             categoryLabel.text =  transaction.getInfo().actionCategory.getInfo().cName
-
+            
             descriptionTextView.text = transaction.getInfo().actionDescription
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
     }
     
     @objc func wayToTransactionEdit() {

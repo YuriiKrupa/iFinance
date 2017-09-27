@@ -392,8 +392,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" text="Description" translatesAutoresizingMaskIntoConstraints="NO" id="1di-QH-yqD">
-                                <rect key="frame" x="15" y="266" width="290" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jEi-0B-IsY">
+                                <rect key="frame" x="15" y="265" width="290" height="128"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -402,9 +403,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GOS-2N-A9X" firstAttribute="trailing" secondItem="8tD-Xf-TwP" secondAttribute="trailing" constant="15" id="0wY-yl-16z"/>
-                            <constraint firstItem="1di-QH-yqD" firstAttribute="top" secondItem="hsg-iF-6iz" secondAttribute="bottom" constant="15" id="1gs-ty-5Hn"/>
                             <constraint firstItem="cpu-32-7X6" firstAttribute="leading" secondItem="GOS-2N-A9X" secondAttribute="leading" constant="15" id="4o1-iE-m7U"/>
-                            <constraint firstItem="GOS-2N-A9X" firstAttribute="trailing" secondItem="1di-QH-yqD" secondAttribute="trailing" constant="15" id="6ZO-4p-VaT"/>
                             <constraint firstItem="GOS-2N-A9X" firstAttribute="trailing" secondItem="cpu-32-7X6" secondAttribute="trailing" constant="15" id="Cgn-1L-mwg"/>
                             <constraint firstItem="cpu-32-7X6" firstAttribute="top" secondItem="u3P-Eq-M5G" secondAttribute="bottom" constant="20" id="Enn-z4-4Rz"/>
                             <constraint firstItem="8tD-Xf-TwP" firstAttribute="top" secondItem="GOS-2N-A9X" secondAttribute="top" constant="20" id="I51-AG-GzC"/>
@@ -417,7 +416,6 @@
                             <constraint firstItem="u3P-Eq-M5G" firstAttribute="top" secondItem="8tD-Xf-TwP" secondAttribute="bottom" constant="5" id="ukC-wc-MBT"/>
                             <constraint firstItem="hsg-iF-6iz" firstAttribute="top" secondItem="Cuu-Vb-9V3" secondAttribute="bottom" constant="15" id="uuW-Lj-hux"/>
                             <constraint firstItem="GOS-2N-A9X" firstAttribute="trailing" secondItem="Cuu-Vb-9V3" secondAttribute="trailing" constant="15" id="vqg-M0-G9f"/>
-                            <constraint firstItem="1di-QH-yqD" firstAttribute="leading" secondItem="GOS-2N-A9X" secondAttribute="leading" constant="15" id="wIC-YA-SFk"/>
                             <constraint firstItem="Cuu-Vb-9V3" firstAttribute="leading" secondItem="GOS-2N-A9X" secondAttribute="leading" constant="15" id="zbB-6X-xZh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GOS-2N-A9X"/>
@@ -425,7 +423,7 @@
                     <connections>
                         <outlet property="categoryLabel" destination="hsg-iF-6iz" id="AMe-Rk-v9P"/>
                         <outlet property="dateLabel" destination="u3P-Eq-M5G" id="Age-Ef-e1L"/>
-                        <outlet property="descriptionTextView" destination="1di-QH-yqD" id="bxo-HA-WNh"/>
+                        <outlet property="descriptionTextView" destination="jEi-0B-IsY" id="q0x-0O-7kj"/>
                         <outlet property="idLabel" destination="8tD-Xf-TwP" id="Cur-b8-SyK"/>
                         <outlet property="nameLabel" destination="Cuu-Vb-9V3" id="Ctm-Cv-BA6"/>
                         <outlet property="valueLabel" destination="cpu-32-7X6" id="Lfi-yK-Mle"/>
@@ -434,7 +432,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0PN-hh-Kst" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="246" y="895"/>
+            <point key="canvasLocation" x="245.625" y="894.71830985915494"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

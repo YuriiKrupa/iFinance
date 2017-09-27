@@ -53,6 +53,6 @@ class CreateEditCategoryController: UIViewController {
             _ = model.updateCategory(byCategory: categoryItem, name: getFields().fName, description: getFields().fDescription)
         } else { model.addCategory(name: categoryNameTextField.text!, description: categoryDescriptionTextArea.text!) }
         _ = navigationController?.popViewController(animated: true)
-        model.codeCategories()
+        //model.codeCategories()
     }
 }

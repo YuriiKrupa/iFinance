@@ -25,7 +25,7 @@ class Category: NSObject, NSCoding {
         
         Category.idCounter  += 1
     }
-    init (id:Int, name n: String, decription d: String = "Description not specified") {
+    init(id:Int, name n: String, decription d: String = "Description not specified") {
         self.id              = id
         self.name            = n
         self.descriptionText = d
@@ -39,21 +39,9 @@ class Category: NSObject, NSCoding {
         return idCounter
     }
     
-    //MARK: Instance methods
-/*    func getName() -> String {
-        return name!
-    }
-    func getId() -> Int {
-        return id!
-    }
-    func getDescription() -> String {
-        return descriptionText!
-    }
-*/
     func getInfo() -> ( cId: Int, cName: String, cDescription: String) {
         return (id!, name!, descriptionText!)
     }
-    
     
     //MARK: Encode/decode functions
     func encode(with aCoder: NSCoder) {

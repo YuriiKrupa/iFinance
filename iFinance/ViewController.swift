@@ -59,13 +59,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        
 //        _ = navigationController?.pushViewController(categoryManager, animated: true)
         
+        //self.view.autoresizesSubviews = UIViewAutoresizing.f
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        model.decodeCategories()
-        model.decodeTransactions()
+//        model.decodeCategories()
+//        model.decodeTransactions()
         if model.getCategoryList().isEmpty {
             model.addCategory(name: "Food", description: "Expences on food")
             model.addCategory(name: "Utilities", description: "Expences on food")

@@ -87,8 +87,9 @@ class CreateEditTransactionViewController: UIViewController, UIPickerViewDelegat
             //FIXME: bug - unwrapping an Optional value for test, test2, test4 transactions
             _ = model.updateTransaction(byTransaction: record!, name: nameTextField.text!, category: model.getGategory(byName: categoryTextField.text!)!, value: Double(valueTextField.text!)!, date: dateDataPicker.date, description: descriptionTextArea.text ?? "" , isIncome: !transactionTypeSwitch.isOn)
         }
-        model.codeTransactions()
-        _ = navigationController?.popViewController(animated: true)
+        //model.codeTransactions()
+        _ = navigationController?.popToRootViewController(animated: true)
+    	
     }
     
     
