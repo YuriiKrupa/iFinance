@@ -16,16 +16,17 @@ class CreateEditTransactionViewController: UIViewController, UIPickerViewDelegat
     @IBOutlet weak var descriptionTextArea: UITextView!
     @IBOutlet weak var dateDataPicker:      UIDatePicker!
     
-    @IBOutlet weak var transactionTypeSwitch: UISwitch!
+    @IBOutlet weak var transactionTypeLabel:    UILabel!
+    @IBOutlet weak var transactionTypeSwitch:   UISwitch!
     
     let model = TransferModel.transferModel
-    var record: Transaction?
+    
+    var record:         Transaction?
     var recordCategory: Category?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         descriptionTextArea.layer.borderWidth = 1
-        //descriptionTextArea.layer.borderColor = UIColor.lightGray as! CGColor
         let categoryPicker = UIPickerView()
         categoryPicker.delegate = self
         categoryPicker.dataSource = self
@@ -35,7 +36,6 @@ class CreateEditTransactionViewController: UIViewController, UIPickerViewDelegat
         
         if record == nil {
             self.title = "New"
-            
         } else {
             self.title = "Edit"
             setProperties()
@@ -44,9 +44,7 @@ class CreateEditTransactionViewController: UIViewController, UIPickerViewDelegat
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
     }
-    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -71,6 +69,9 @@ class CreateEditTransactionViewController: UIViewController, UIPickerViewDelegat
         dateDataPicker.date = (record?.getInfo().actionDate)!
         transactionTypeSwitch.setOn(!(record?.getInfo().actionIsIncome)!, animated: true)
     }
+    @IBAction func transactionTypeSwitch(_ sender: Any) {
+        if transactionTypeSwitch.isOn { transactionTypeLabel.text = "Expence" } else { transactionTypeLabel.text = "Income" }
+    }
     
     @objc func saveTransaction() {
         if record == nil {
@@ -81,13 +82,10 @@ class CreateEditTransactionViewController: UIViewController, UIPickerViewDelegat
                     record = Transaction(tCategory: recordCategory!, tDate: dateDataPicker.date, tName: name, tDescription: descriptionTextArea.text, tValue: Double(value)!, type: true)
                 }
                 model.addTransaction(transaction: record!)
-                //transactionHistory.append(record!)
             }
         } else {
-            //FIXME: bug - unwrapping an Optional value for test, test2, test4 transactions
             _ = model.updateTransaction(byTransaction: record!, name: nameTextField.text!, category: model.getGategory(byName: categoryTextField.text!)!, value: Double(valueTextField.text!)!, date: dateDataPicker.date, description: descriptionTextArea.text ?? "" , isIncome: !transactionTypeSwitch.isOn)
         }
-        //model.codeTransactions()
         _ = navigationController?.popToRootViewController(animated: true)
     	
     }

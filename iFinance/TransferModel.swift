@@ -9,22 +9,18 @@
 import Foundation
 
 class TransferModel {
-    
-    
+
     private var categoryStorage:        [Category]     = []
     private var transactionsStorage:    [Transaction]  = []
     private let fileManager                            = FileManager()
-    
-    private let categoriesPath:   String?
-    private let transactionsPath: String?
+    private let categoriesPath:         String?
+    private let transactionsPath:       String?
     
     static let transferModel = TransferModel()
-    
     
     private init(){
         //Prepare for Archiving data to files
         let documentDirectoryUrls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
-        
         if let documentDirectoryUrl = documentDirectoryUrls.first {
             self.categoriesPath    = documentDirectoryUrl.appendingPathComponent("categories.archive").path
             self.transactionsPath  = documentDirectoryUrl.appendingPathComponent("transactions.archive").path
@@ -34,16 +30,13 @@ class TransferModel {
         }
         self.decodeCategories()
         self.decodeTransactions()
-        
     }
     
     //MARK: Categories functions
-    
     func getCategoryList() -> [Category]{
         self.decodeCategories()
         return categoryStorage
     }
-    
     func addCategory(category: Category) {
         categoryStorage.append(category)
         self.codeCategories()
@@ -98,28 +91,17 @@ class TransferModel {
         }
         return false
     }
-
     
     //MARK: NSCoding for Category List
     func codeCategories(){
         if categoriesPath != nil {
             let success = NSKeyedArchiver.archiveRootObject(categoryStorage, toFile: categoriesPath!)
-            if !success {
-                print("Unable to save array to \(categoriesPath!)")
-            } else {
-                print("File not found")
-            }
         }
-        
     }
-    
     func decodeCategories(){
         if categoriesPath != nil, let categoryList = NSKeyedUnarchiver.unarchiveObject(withFile: categoriesPath!) as? [Category] {
             categoryStorage = categoryList
-        } else {
-            print("File not found")
         }
-        
     }
     
     //MARK: Transactions functions
@@ -168,7 +150,6 @@ class TransferModel {
         if transactionsStorage.contains(byTransaction) {
             for i in transactionsStorage {
                 if i == byTransaction {
-                    //FIXME: Fix id & category setting
                     transactionsStorage[transactionsStorage.index(of: byTransaction)!] = Transaction(id: i.getInfo().actionId, category: category, date: date, name: name, description: description, value: value, isIncome: isIncome)
                     self.codeTransactions()
                     return true
@@ -177,23 +158,8 @@ class TransferModel {
         }
         return false
     }
-    //FIXME: make it
+
     func removeTransaction(byTransaction: Transaction? = nil, byName: String? = nil) -> Bool {
-//        if let transaction = byTransaction {
-//            if let index = transactionsStorage.index(of: transaction) {
-//                transactionsStorage.remove(at: index)
-//                return true
-//            }
-//        } else if let name = byName {
-//            for i in transactionsStorage{
-//                if i.getInfo().actionName == name {
-//                    if let index = transactionsStorage.index(of: i) {
-//                        transactionsStorage.remove(at: index)
-//                        return true
-//                    }
-//                }
-//            }
-//        }
         if let transaction = byTransaction {
             self.transactionsStorage.remove(at: transactionsStorage.index(of: transaction)!)
             self.codeTransactions()
@@ -216,20 +182,12 @@ class TransferModel {
     func codeTransactions() {
         if transactionsPath != nil {
             let success = NSKeyedArchiver.archiveRootObject(transactionsStorage, toFile: transactionsPath!)
-            if !success {
-                print("Unable to save array to \(transactionsPath!)")
-            } else {
-                print("File not found")
-            }
         }
     }
     
     func decodeTransactions() {
         if transactionsPath != nil, let transactionList = NSKeyedUnarchiver.unarchiveObject(withFile: transactionsPath!) as? [Transaction]{
             transactionsStorage = transactionList
-        } else {
-            print("File not found")
         }
     }
-    
 }

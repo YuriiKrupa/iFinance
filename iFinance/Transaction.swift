@@ -10,13 +10,8 @@ import Foundation
 
 class Transaction: NSObject, NSCoding {
     
-    //MARK: Class properties
-    //FIXME: Id count losing when application restart
-    static private var idCounter:Int = 0
-    
     //MARK: Instance properties
     private var id:              UUID?
-    //FIXME: After category editing transactin will lose connection and will store missing category
     private var categoty:        Category?
     private var date:            Date?
     private var name:            String?
@@ -25,15 +20,13 @@ class Transaction: NSObject, NSCoding {
     private var isIncome:        Bool?
     
     init(tCategory cat: Category, tDate d: Date, tName n: String, tDescription descript: String, tValue val:Double, type isIncome:Bool = false) {
-        self.id                 = UUID.init()//Transaction.idCounter
+        self.id                 = UUID.init()
         self.categoty           = cat
         self.date               = d
         self.name               = n
         self.descriptionText    = descript
         self.value              = val
         self.isIncome           = isIncome
-        
-        Transaction.idCounter  += 1
     }
     init(id: UUID, category: Category, date: Date, name: String, description: String, value: Double, isIncome: Bool = false) {
         self.id                 = id
@@ -45,39 +38,7 @@ class Transaction: NSObject, NSCoding {
         self.isIncome           = isIncome
     }
     
-    //MARK: Class methods
-    static func getCount() -> Int {
-        return idCounter
-    }
-    
     //MARK: Instance methods
-//    func getId() -> Int {
-//        return id!
-//    }
-//
-//    func getCagegory() -> Category {
-//        return categoty!
-//    }
-//
-//    func getDate() -> Date {
-//        return date!
-//    }
-//
-//    func getName() -> String {
-//        return name!
-//    }
-//
-//    func getDescription() -> String {
-//        return descriptionText!
-//    }
-//
-//    func getValue() -> Double {
-//        return value!
-//    }
-//
-//    func isIncomeType() -> Bool {
-//        return isIncome!
-//    }
     func getInfo() -> (actionId: UUID, actionDate: Date, actionName: String, actionDescription:String, actionCategory:Category, actionValue:Double, actionIsIncome:Bool) {
         return (id!, date!, name!, descriptionText!, categoty!, value!, isIncome!)
     }
@@ -96,7 +57,7 @@ class Transaction: NSObject, NSCoding {
     
     required init?(coder aDecoder: NSCoder) {
         if let idDecode = aDecoder.decodeObject(forKey: "id") as? UUID {
-            self.id                 = idDecode //(aDecoder.decodeObject(forKey: "id") as? Int)!
+            self.id                 = idDecode
             self.categoty           = aDecoder.decodeObject(forKey: "category")         as? Category        ?? Category(name: "No Category")
             self.date               = aDecoder.decodeObject(forKey: "date")             as? Date            ?? Date()
             self.name               = aDecoder.decodeObject(forKey: "name")             as? String          ?? "No Name"

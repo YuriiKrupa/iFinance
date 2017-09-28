@@ -34,11 +34,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let removeOpt = UITableViewRowAction(style: .destructive, title: "Remove") { action, index in
-            print("Btn remove tapped")
-            //FIXME: add method to model
-            print (indexPath.row)
-            //print(self.transferModel.removeCategory(byCategory: (self.transferModel.getCategoryList()[(indexPath.row)])))
-            print(self.model.removeTransaction(byTransaction: (self.model.getTransactionList()[(indexPath.row)])))
+            _ = self.model.removeTransaction(byTransaction: (self.model.getTransactionList()[(indexPath.row)]))
             self.transactionList.reloadData()
             self.setUpView()
         }
@@ -58,22 +54,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let btnShowChart = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(self.wayToPieChart))
         let btnTransactionAdd = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.wayToTransaction))
         self.navigationItem.rightBarButtonItems = [btnTransactionAdd, btnShowChart]
-//        let storyboard1 = UIStoryboard(name: "Main", bundle: nil)
-//        guard let categoryManager = storyboard1.instantiateViewController(withIdentifier: "CategoryManager") as? CategoryManager else {
-//            return
-//        }
-//        
-//        _ = navigationController?.pushViewController(categoryManager, animated: true)
-        
-        //self.view.autoresizesSubviews = UIViewAutoresizing.f
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-//        model.decodeCategories()
-//        model.decodeTransactions()
         if model.getCategoryList().isEmpty {
             model.addCategory(name: "Food", description: "Expences on food")
             model.addCategory(name: "Utilities", description: "Expences on food")
@@ -81,33 +66,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         transactionList.reloadData()
         self.setUpView()
-        
-//        totalValueLabel.textColor = UIColor.black
-//        totalValueLabel.text = model.getTotal()
-//        expeneceTotalValueLabel.textColor = UIColor.red
-//        expeneceTotalValueLabel.text = "-" +  model.getTotalExpence()
-//        incomeTotalValuelLabel.textColor = UIColor.green
-//        incomeTotalValuelLabel.text = "+" + model.getTotalIncome()
-//
-        //let rep = Report.init()
-        //TODO: fix report
-//        let repo = Report.init().inRange(from: Date.init(timeIntervalSinceNow: (3600*72)), to: Date.init())
-//        for r in repo {print("\(r.getInfo().actionDate) \(r.getInfo().actionName)")}
-//        print("List")
-//        for i in model.getTransactionList() {print("\(i.getDate())  \(i.getName())")}
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        
-   /*     let storyboard1 = UIStoryboard(name: "Main", bundle: nil)
-        guard let categoryManager = storyboard1.instantiateViewController(withIdentifier: "CategoryManager") as? CategoryManager else {
-            return
-        }*/
-        
-        //navigationController?.pushViewController(categoryManager, animated: true)
-        
     }
     
     func setUpView() {

@@ -37,14 +37,10 @@ class CategoryManager: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let removeOpt = UITableViewRowAction(style: .destructive, title: "Remove") { action, index in
-            print("Btn remove tapped")
-            //FIXME: add method to model
-            print (indexPath.row)
-            print(self.transferModel.removeCategory(byCategory: (self.transferModel.getCategoryList()[(indexPath.row)])))
+            _ = self.transferModel.removeCategory(byCategory: (self.transferModel.getCategoryList()[(indexPath.row)]))
             self.tableView.reloadData()
         }
         removeOpt.backgroundColor = UIColor.red
-        
         return [removeOpt]
     }
     
@@ -56,7 +52,7 @@ class CategoryManager: UITableViewController {
         if segue.identifier == "editCategory" ,
             let nextScene = segue.destination as? CreateEditCategoryController,
             let indexPath = self.tableView.indexPathForSelectedRow {
-            //let selectedItem = toDoListItems[indexPath.row]
+
             nextScene.categoryToEditIndex = indexPath
         }
     }

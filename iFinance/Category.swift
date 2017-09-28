@@ -10,9 +10,6 @@ import Foundation
 
 class Category: NSObject, NSCoding {
     
-    //MARK: Class fields
-    static private var idCounter: Int = 0
-    
     //MARK: Instance fields
     private var id:               UUID?
     private var name:             String?
@@ -23,7 +20,6 @@ class Category: NSObject, NSCoding {
         self.name            = n
         self.descriptionText = d
         
-        Category.idCounter  += 1
     }
     init(id:UUID, name n: String, decription d: String = "Description not specified") {
         self.id              = id
@@ -35,10 +31,6 @@ class Category: NSObject, NSCoding {
     }
     
     //MARK: Class methods
-    static func getCount() -> Int {
-        return idCounter
-    }
-    
     func getInfo() -> ( cId: UUID, cName: String, cDescription: String) {
         return (id!, name!, descriptionText!)
     }
@@ -52,7 +44,7 @@ class Category: NSObject, NSCoding {
     
     required init? (coder aDecoder: NSCoder) {
         if let idDecode = aDecoder.decodeObject(forKey: "id") as? UUID {
-            self.id              = idDecode //(aDecoder.decodeObject(forKey: "id") as? Int)!
+            self.id              = idDecode
             self.name            = aDecoder.decodeObject(forKey: "name") as? String ?? "No Name"
             self.descriptionText = aDecoder.decodeObject(forKey: "descriptionText") as? String ?? "No description"
         }

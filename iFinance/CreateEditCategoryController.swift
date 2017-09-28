@@ -21,7 +21,6 @@ class CreateEditCategoryController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryDescriptionTextArea.layer.borderWidth = 1
-        //categoryDescriptionTextArea.layer.borderColor =
         //MARK: Configure view apearance Edit || New
         if categoryToEditIndex != nil {
             self.title = "Edit"
@@ -53,6 +52,5 @@ class CreateEditCategoryController: UIViewController {
             _ = model.updateCategory(byCategory: categoryItem, name: getFields().fName, description: getFields().fDescription)
         } else { model.addCategory(name: categoryNameTextField.text!, description: categoryDescriptionTextArea.text!) }
         _ = navigationController?.popViewController(animated: true)
-        //model.codeCategories()
     }
 }
