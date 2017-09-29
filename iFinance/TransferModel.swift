@@ -10,11 +10,11 @@ import Foundation
 
 class TransferModel {
 
-    private var categoryStorage:        [Category]     = []
-    private var transactionsStorage:    [Transaction]  = []
-    private let fileManager                            = FileManager()
-    private let categoriesPath:         String?
-    private let transactionsPath:       String?
+    private var categoryStorage: [Category] = []
+    private var transactionsStorage: [Transaction]  = []
+    private let fileManager = FileManager()
+    private let categoriesPath: String?
+    private let transactionsPath: String?
     
     static let transferModel = TransferModel()
     
@@ -22,8 +22,8 @@ class TransferModel {
         //Prepare for Archiving data to files
         let documentDirectoryUrls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
         if let documentDirectoryUrl = documentDirectoryUrls.first {
-            self.categoriesPath    = documentDirectoryUrl.appendingPathComponent("categories.archive").path
-            self.transactionsPath  = documentDirectoryUrl.appendingPathComponent("transactions.archive").path
+            self.categoriesPath = documentDirectoryUrl.appendingPathComponent("categories.archive").path
+            self.transactionsPath = documentDirectoryUrl.appendingPathComponent("transactions.archive").path
         } else {
             self.categoriesPath   = nil
             self.transactionsPath = nil
@@ -56,14 +56,15 @@ class TransferModel {
     func updateCategory(byCategory: Category, name: String, description: String = "") -> Bool {
         if categoryStorage.contains(byCategory) {
             //FIXME: Refactor acording DRY
-            let index = categoryStorage.index(of: byCategory)
-            if description != "" {
-                categoryStorage[index!] = Category.init(id: byCategory.getInfo().cId, name: name, decription: description)
-            } else {
-                categoryStorage[index!] = Category.init(id: byCategory.getInfo().cId, name: name, decription: categoryStorage[index!].getInfo().cDescription)
-            }
-            self.codeCategories()
-            return true
+            guard let index = categoryStorage.index(of: byCategory) else { return false }
+                if description != "" {
+                    categoryStorage[index] = Category.init(id: byCategory.getInfo().cId, name: name, decription: description)
+                } else {
+                    categoryStorage[index] = Category.init(id: byCategory.getInfo().cId, name: name, decription: categoryStorage[index].getInfo().cDescription)
+                }
+                self.codeCategories()
+                return true
+            
         }
         return false
     }
@@ -71,11 +72,11 @@ class TransferModel {
         for i in categoryStorage {
             if i.getInfo().cName == byCategoryName {
                 //FIXME: Refactor acording DRY
-                let index = categoryStorage.index(of: i)
+                 guard let index = categoryStorage.index(of: i) else { return false }
                 if description != "" {
-                    categoryStorage[index!] = Category.init(id: i.getInfo().cId, name: name, decription: description)
+                    categoryStorage[index] = Category.init(id: i.getInfo().cId, name: name, decription: description)
                 } else {
-                    categoryStorage[index!] = Category.init(id: i.getInfo().cId, name: name, decription: categoryStorage[index!].getInfo().cDescription)
+                    categoryStorage[index] = Category.init(id: i.getInfo().cId, name: name, decription: categoryStorage[index].getInfo().cDescription)
                 }
                 self.codeCategories()
                 return true
@@ -176,7 +177,7 @@ class TransferModel {
         }
         return false
     }
-    
+    	
     //MARK: NSCoding for Transaction list
     func codeTransactions() {
         if transactionsPath != nil {

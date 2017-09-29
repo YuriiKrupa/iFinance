@@ -218,13 +218,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="id number" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AC3-hD-jcl">
-                                <rect key="frame" x="203" y="91" width="101" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AS2-mt-IGt">
                                 <rect key="frame" x="16" y="120" width="288" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -245,7 +238,6 @@
                     </view>
                     <connections>
                         <outlet property="categoryDescriptionTextArea" destination="ZGI-8X-Nmt" id="IOg-sJ-9jV"/>
-                        <outlet property="categoryIdLabel" destination="AC3-hD-jcl" id="MZE-fi-BF3"/>
                         <outlet property="categoryNameTextField" destination="AS2-mt-IGt" id="OiZ-LX-ReW"/>
                     </connections>
                 </viewController>
@@ -366,31 +358,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction id" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tD-Xf-TwP">
-                                <rect key="frame" x="15" y="84" width="290" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cuu-Vb-9V3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Transaction name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cuu-Vb-9V3">
                                 <rect key="frame" x="15" y="204" width="290" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transzction Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsg-iF-6iz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Transzction Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsg-iF-6iz">
                                 <rect key="frame" x="15" y="240" width="290" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spended" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpu-32-7X6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Spended" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpu-32-7X6">
                                 <rect key="frame" x="15" y="148" width="290" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3P-Eq-M5G">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3P-Eq-M5G">
                                 <rect key="frame" x="55" y="110" width="210" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
@@ -406,18 +392,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GOS-2N-A9X" firstAttribute="trailing" secondItem="8tD-Xf-TwP" secondAttribute="trailing" constant="15" id="0wY-yl-16z"/>
                             <constraint firstItem="cpu-32-7X6" firstAttribute="leading" secondItem="GOS-2N-A9X" secondAttribute="leading" constant="15" id="4o1-iE-m7U"/>
                             <constraint firstItem="GOS-2N-A9X" firstAttribute="trailing" secondItem="cpu-32-7X6" secondAttribute="trailing" constant="15" id="Cgn-1L-mwg"/>
                             <constraint firstItem="cpu-32-7X6" firstAttribute="top" secondItem="u3P-Eq-M5G" secondAttribute="bottom" constant="20" id="Enn-z4-4Rz"/>
-                            <constraint firstItem="8tD-Xf-TwP" firstAttribute="top" secondItem="GOS-2N-A9X" secondAttribute="top" constant="20" id="I51-AG-GzC"/>
                             <constraint firstItem="GOS-2N-A9X" firstAttribute="trailing" secondItem="hsg-iF-6iz" secondAttribute="trailing" constant="15" id="Vzr-sM-0Vo"/>
                             <constraint firstItem="GOS-2N-A9X" firstAttribute="trailing" secondItem="u3P-Eq-M5G" secondAttribute="trailing" constant="55" id="bcJ-ay-bnC"/>
-                            <constraint firstItem="8tD-Xf-TwP" firstAttribute="leading" secondItem="GOS-2N-A9X" secondAttribute="leading" constant="15" id="eoL-6F-2Em"/>
                             <constraint firstItem="hsg-iF-6iz" firstAttribute="leading" secondItem="GOS-2N-A9X" secondAttribute="leading" constant="15" id="g9l-GH-wyp"/>
                             <constraint firstItem="u3P-Eq-M5G" firstAttribute="leading" secondItem="GOS-2N-A9X" secondAttribute="leading" constant="55" id="hrr-7u-zAb"/>
                             <constraint firstItem="Cuu-Vb-9V3" firstAttribute="top" secondItem="cpu-32-7X6" secondAttribute="bottom" constant="20" id="tLj-1j-5sN"/>
-                            <constraint firstItem="u3P-Eq-M5G" firstAttribute="top" secondItem="8tD-Xf-TwP" secondAttribute="bottom" constant="5" id="ukC-wc-MBT"/>
                             <constraint firstItem="hsg-iF-6iz" firstAttribute="top" secondItem="Cuu-Vb-9V3" secondAttribute="bottom" constant="15" id="uuW-Lj-hux"/>
                             <constraint firstItem="GOS-2N-A9X" firstAttribute="trailing" secondItem="Cuu-Vb-9V3" secondAttribute="trailing" constant="15" id="vqg-M0-G9f"/>
                             <constraint firstItem="Cuu-Vb-9V3" firstAttribute="leading" secondItem="GOS-2N-A9X" secondAttribute="leading" constant="15" id="zbB-6X-xZh"/>
@@ -428,7 +410,6 @@
                         <outlet property="categoryLabel" destination="hsg-iF-6iz" id="AMe-Rk-v9P"/>
                         <outlet property="dateLabel" destination="u3P-Eq-M5G" id="Age-Ef-e1L"/>
                         <outlet property="descriptionTextView" destination="jEi-0B-IsY" id="q0x-0O-7kj"/>
-                        <outlet property="idLabel" destination="8tD-Xf-TwP" id="Cur-b8-SyK"/>
                         <outlet property="nameLabel" destination="Cuu-Vb-9V3" id="Ctm-Cv-BA6"/>
                         <outlet property="valueLabel" destination="cpu-32-7X6" id="Lfi-yK-Mle"/>
                         <segue destination="3Dy-yQ-ZJR" kind="show" identifier="editTransaction" id="SA9-x4-x1W"/>

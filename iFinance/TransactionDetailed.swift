@@ -12,7 +12,6 @@ class TransactionDetailed: UIViewController {
     
     var transactionTemp: Transaction?
     
-    @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -33,7 +32,6 @@ class TransactionDetailed: UIViewController {
     
     func setUpView() {
         if let transaction = transactionTemp {
-            idLabel.text = "\(transaction.getInfo().actionId)"
             var date = Date()
             let dd = transaction.getInfo()
             date = dd.actionDate

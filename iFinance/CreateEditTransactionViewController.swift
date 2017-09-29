@@ -10,18 +10,18 @@ import UIKit
 
 class CreateEditTransactionViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    @IBOutlet weak var nameTextField:       UITextField!
-    @IBOutlet weak var categoryTextField:   UITextField!
-    @IBOutlet weak var valueTextField:      UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var categoryTextField: UITextField!
+    @IBOutlet weak var valueTextField: UITextField!
     @IBOutlet weak var descriptionTextArea: UITextView!
-    @IBOutlet weak var dateDataPicker:      UIDatePicker!
+    @IBOutlet weak var dateDataPicker: UIDatePicker!
     
-    @IBOutlet weak var transactionTypeLabel:    UILabel!
-    @IBOutlet weak var transactionTypeSwitch:   UISwitch!
+    @IBOutlet weak var transactionTypeLabel: UILabel!
+    @IBOutlet weak var transactionTypeSwitch: UISwitch!
     
     let model = TransferModel.transferModel
     
-    var record:         Transaction?
+    var record: Transaction?
     var recordCategory: Category?
     
     override func viewDidLoad() {

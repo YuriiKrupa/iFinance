@@ -10,18 +10,18 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var transactionList:         UITableView!
-    @IBOutlet weak var monthLabel:              UILabel!
-    @IBOutlet weak var totalValueLabel:         UILabel!
+    @IBOutlet weak var transactionList: UITableView!
+    @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var totalValueLabel: UILabel!
     @IBOutlet weak var expeneceTotalValueLabel: UILabel!
-    @IBOutlet weak var incomeTotalValuelLabel:  UILabel!
+    @IBOutlet weak var incomeTotalValuelLabel: UILabel!
     
     let model = TransferModel.transferModel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell                = tableView.dequeueReusableCell(withIdentifier: "tableReusableCell")!
-        let transactionInfo     = model.getTransactionList()[indexPath.row].getInfo()
-        cell.textLabel?.text    = transactionInfo.actionName
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableReusableCell")!
+        let transactionInfo = model.getTransactionList()[indexPath.row].getInfo()
+        cell.textLabel?.text = transactionInfo.actionName
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,7 +65,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         transactionList.reloadData()
         self.setUpView()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -84,7 +84,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         incomeTotalValuelLabel.textColor = UIColor.green
         incomeTotalValuelLabel.text = "+" + model.getTotalIncome()
     }
-  
+    
     @objc func wayToCategory(){
         self.performSegue(withIdentifier: "toCategoryManager", sender: self)
     }
