@@ -19,17 +19,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let model = TransferModel.transferModel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tableReusableCell")!
-        let transactionInfo = model.getTransactionList()[indexPath.row].getInfo()
-        cell.textLabel?.text = transactionInfo.actionName
+        let cell                = tableView.dequeueReusableCell(withIdentifier: "tableReusableCell")!
+        let transactionInfo     = model.getTransactionList()[indexPath.row].getInfo()
+        cell.textLabel?.text    = transactionInfo.actionName
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.getTransactionList().count
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //ЗАПИТАТИ!!!!
-        //print(model.getTransactionList()[indexPath.row].getInfo().actionName)
         performSegue(withIdentifier: "transactionDetailed", sender: model.getTransactionList()[indexPath.row])
     }
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
