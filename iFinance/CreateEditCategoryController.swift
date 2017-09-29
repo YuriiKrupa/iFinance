@@ -14,7 +14,7 @@ class CreateEditCategoryController: UIViewController {
     let model        = TransferModel.transferModel
     var categoryList = TransferModel.transferModel.getCategoryList()
     
-    @IBOutlet weak var categoryIdLabel:             UILabel!
+    //@IBOutlet weak var categoryIdLabel:             UILabel!
     @IBOutlet weak var categoryNameTextField:       UITextField!
     @IBOutlet weak var categoryDescriptionTextArea: UITextView!
     
@@ -30,7 +30,7 @@ class CreateEditCategoryController: UIViewController {
         } else {
             self.title = "New"
             self.navigationItem.rightBarButtonItem  = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.saveCategory))
-            categoryIdLabel.text = String(categoryList.count)
+            //categoryIdLabel.text = String(categoryList.count)
         }
     }
     
@@ -39,7 +39,7 @@ class CreateEditCategoryController: UIViewController {
     }
     
     private func setFields (category: Category) {
-        categoryIdLabel.text = "\(category.getInfo().cId)"
+        //categoryIdLabel.text = "\(category.getInfo().cId)"
         categoryNameTextField.text = category.getInfo().cName
         categoryDescriptionTextArea.text = category.getInfo().cDescription
     }

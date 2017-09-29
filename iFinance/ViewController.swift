@@ -10,11 +10,11 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var transactionList:         UITableView!
-    @IBOutlet weak var monthLabel:              UILabel!
-    @IBOutlet weak var totalValueLabel:         UILabel!
+    @IBOutlet weak var transactionList: UITableView!
+    @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var totalValueLabel: UILabel!
     @IBOutlet weak var expeneceTotalValueLabel: UILabel!
-    @IBOutlet weak var incomeTotalValuelLabel:  UILabel!
+    @IBOutlet weak var incomeTotalValuelLabel: UILabel!
     
     let model = TransferModel.transferModel
     
