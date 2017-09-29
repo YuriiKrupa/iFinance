@@ -30,7 +30,6 @@ class Category: NSObject, NSCoding {
         return Category.init(id: id, name: name, decription: decriptionTemp)
     }
     
-    //MARK: Class methods
     func getInfo() -> ( cId: UUID, cName: String, cDescription: String) {
         return (id!, name!, descriptionText!)
     }
@@ -41,11 +40,10 @@ class Category: NSObject, NSCoding {
         aCoder.encode(self.name,            forKey: "name")
         aCoder.encode(self.descriptionText, forKey: "descriptionText")
     }
-    
     required init? (coder aDecoder: NSCoder) {
-        if let idDecode = aDecoder.decodeObject(forKey: "id") as? UUID {
+        if let idDecode = aDecoder.decodeObject         (forKey: "id")              as? UUID {
             self.id              = idDecode
-            self.name            = aDecoder.decodeObject(forKey: "name") as? String ?? "No Name"
+            self.name            = aDecoder.decodeObject(forKey: "name")            as? String ?? "No Name"
             self.descriptionText = aDecoder.decodeObject(forKey: "descriptionText") as? String ?? "No description"
         }
     }

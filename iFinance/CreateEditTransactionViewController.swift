@@ -28,9 +28,9 @@ class CreateEditTransactionViewController: UIViewController, UIPickerViewDelegat
         super.viewDidLoad()
         descriptionTextArea.layer.borderWidth = 1
         let categoryPicker = UIPickerView()
-        categoryPicker.delegate = self
-        categoryPicker.dataSource = self
-        categoryPicker.backgroundColor = UIColor.white
+        categoryPicker.delegate         = self
+        categoryPicker.dataSource       = self
+        categoryPicker.backgroundColor  = UIColor.white
         self.categoryTextField.inputAccessoryView = categoryPicker
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.saveTransaction))
         
@@ -61,11 +61,10 @@ class CreateEditTransactionViewController: UIViewController, UIPickerViewDelegat
     }
     
     private func setProperties() {
-        nameTextField.text = record?.getInfo().actionName
-        categoryTextField.text = record?.getInfo().actionCategory.getInfo().cName
-        valueTextField.text = "\((record?.getInfo().actionValue)!)"
-        descriptionTextArea.text = record?.getInfo().actionDescription ?? " "
-        print("\(record?.getInfo().actionDescription ?? "Missing")")
+        nameTextField.text          = record?.getInfo().actionName
+        categoryTextField.text      = record?.getInfo().actionCategory.getInfo().cName
+        valueTextField.text         = "\((record?.getInfo().actionValue)!)"
+        descriptionTextArea.text    = record?.getInfo().actionDescription ?? " "	
         dateDataPicker.date = (record?.getInfo().actionDate)!
         transactionTypeSwitch.setOn(!(record?.getInfo().actionIsIncome)!, animated: true)
     }

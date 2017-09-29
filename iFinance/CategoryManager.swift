@@ -52,7 +52,6 @@ class CategoryManager: UITableViewController {
         if segue.identifier == "editCategory" ,
             let nextScene = segue.destination as? CreateEditCategoryController,
             let indexPath = self.tableView.indexPathForSelectedRow {
-
             nextScene.categoryToEditIndex = indexPath
         }
     }

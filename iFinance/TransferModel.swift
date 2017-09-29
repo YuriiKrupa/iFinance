@@ -95,7 +95,7 @@ class TransferModel {
     //MARK: NSCoding for Category List
     func codeCategories(){
         if categoriesPath != nil {
-            let success = NSKeyedArchiver.archiveRootObject(categoryStorage, toFile: categoriesPath!)
+            _ = NSKeyedArchiver.archiveRootObject(categoryStorage, toFile: categoriesPath!)
         }
     }
     func decodeCategories(){
@@ -174,14 +174,13 @@ class TransferModel {
                 }
             }
         }
-        
         return false
     }
     
     //MARK: NSCoding for Transaction list
     func codeTransactions() {
         if transactionsPath != nil {
-            let success = NSKeyedArchiver.archiveRootObject(transactionsStorage, toFile: transactionsPath!)
+            _ = NSKeyedArchiver.archiveRootObject(transactionsStorage, toFile: transactionsPath!)
         }
     }
     

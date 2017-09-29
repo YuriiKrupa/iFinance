@@ -38,11 +38,9 @@ class Transaction: NSObject, NSCoding {
         self.isIncome           = isIncome
     }
     
-    //MARK: Instance methods
     func getInfo() -> (actionId: UUID, actionDate: Date, actionName: String, actionDescription:String, actionCategory:Category, actionValue:Double, actionIsIncome:Bool) {
         return (id!, date!, name!, descriptionText!, categoty!, value!, isIncome!)
     }
-    
     
     //MARK: Encode/decode functions
     func encode(with aCoder: NSCoder) {
