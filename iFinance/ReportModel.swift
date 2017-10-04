@@ -27,7 +27,6 @@ class ReportModel {
     
     func getRange(from: Date, to: Date) -> [(name: String, date: Date, value: Double, category: Category, isIncome: Bool)] {
         var result = report.filter({ $0.date >= from && $0.date <= to })
-        //FIXME: NEED correct return
         return result
     }
     func getToday() -> [(name: String, date: Date, value: Double, category: Category, isIncome: Bool)] {
