@@ -1,5 +1,5 @@
 //
-//  Report.swift
+//  ReportModel.swift
 //  iFinance
 //
 //  Created by ITA student on 9/23/17.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Report {
-    let model = TransferModel.transferModel
+class ReportModel {
+    private let model = TransferModel.transferModel
     var report: [(name: String, date: Date, value: Double, category: Category, isIncome: Bool)] = []
     
     init() {
@@ -25,13 +25,13 @@ class Report {
         }
     }
     
-    func calculateByDate(between from: Date, and to: Date) -> [(name: String, value: Double, category: String)] {
-        var resultArray: [(name: String, value: Double, category: String)] = []
-        for transaction in model.getTransactionList() {
-            
-        }
-        
-        return resultArray
-    }
+//    func calculateByDate(between from: Date, and to: Date) -> [(name: String, value: Double, category: String)] {
+//        var resultArray: [(name: String, value: Double, category: String)] = []
+//        for transaction in model.getTransactionList() {
+//
+//        }
+//
+//        return resultArray
+//    }
     
 }

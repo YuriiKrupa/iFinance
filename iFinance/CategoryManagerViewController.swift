@@ -1,5 +1,5 @@
 //
-//  CategoryManager.swift
+//  CategoryManagerViewController.swift
 //  iFinance
 //
 //  Created by ITA student on 9/18/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CategoryManager: UITableViewController {
+class CategoryManagerViewController: UITableViewController {
     
     let transferModel = TransferModel.transferModel
     
@@ -21,11 +21,7 @@ class CategoryManager: UITableViewController {
         super.viewDidAppear(animated)
         tableView.reloadData()
     }
-    
-    //MARK: TableView setup
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return transferModel.getCategoryList().count
     }
@@ -50,7 +46,7 @@ class CategoryManager: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editCategory" ,
-            let nextScene = segue.destination as? CreateEditCategoryController,
+            let nextScene = segue.destination as? CreateEditCategoryViewController,
             let indexPath = self.tableView.indexPathForSelectedRow {
 
             nextScene.categoryToEditIndex = indexPath

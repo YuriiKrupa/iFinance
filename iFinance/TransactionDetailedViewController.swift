@@ -1,5 +1,5 @@
 //
-//  TransactionDetailed.swift
+//  TransactionDetailedViewController.swift
 //  iFinance
 //
 //  Created by ITA student on 9/23/17.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class TransactionDetailed: UIViewController {
+class TransactionDetailedViewController: UIViewController {
     
     var transactionTemp: Transaction?
     
-    //@IBOutlet weak var idLabel: UILabel!
+    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!

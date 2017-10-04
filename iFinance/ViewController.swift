@@ -50,9 +50,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.title = "iFinance"
         self.setUpView()
         let btnCategoryEdit = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(self.wayToCategory))
-        self.navigationItem.leftBarButtonItem = btnCategoryEdit
         let btnShowChart = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(self.wayToPieChart))
         let btnTransactionAdd = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.wayToTransaction))
+        
+        self.navigationItem.leftBarButtonItem = btnCategoryEdit
         self.navigationItem.rightBarButtonItems = [btnTransactionAdd, btnShowChart]
         
     }
@@ -98,7 +99,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "transactionDetailed", let nextScene = segue.destination as? TransactionDetailed, let item = sender as? Transaction {
+        if segue.identifier == "transactionDetailed", let nextScene = segue.destination as? TransactionDetailedViewController, let item = sender as? Transaction {
             nextScene.transactionTemp = item
         }
         

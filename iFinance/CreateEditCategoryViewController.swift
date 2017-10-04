@@ -1,5 +1,5 @@
 //
-//  CreateEditCategoryController.swift
+//  CreateEditCategoryViewController.swift
 //  iFinance
 //
 //  Created by ITA student on 9/18/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateEditCategoryController: UIViewController {
+class CreateEditCategoryViewController: UIViewController {
     
     var categoryToEditIndex: IndexPath?
     let model        = TransferModel.transferModel
