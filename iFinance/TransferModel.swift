@@ -71,15 +71,16 @@ class TransferModel {
     func updateCategory(byCategoryName: String, name: String, description: String = "") -> Bool {
         for i in categoryStorage {
             if i.getInfo().cName == byCategoryName {
-                //FIXME: Refactor acording DRY
-                 guard let index = categoryStorage.index(of: i) else { return false }
-                if description != "" {
-                    categoryStorage[index] = Category.init(id: i.getInfo().cId, name: name, decription: description)
-                } else {
-                    categoryStorage[index] = Category.init(id: i.getInfo().cId, name: name, decription: categoryStorage[index].getInfo().cDescription)
-                }
-                self.codeCategories()
-                return true
+                return updateCategory(byCategory: i, name: name, description: description)
+//                //FIXME: Refactor acording DRY
+//                 guard let index = categoryStorage.index(of: i) else { return false }
+//                if description != "" {
+//                    categoryStorage[index] = Category.init(id: i.getInfo().cId, name: name, decription: description)
+//                } else {
+//                    categoryStorage[index] = Category.init(id: i.getInfo().cId, name: name, decription: categoryStorage[index].getInfo().cDescription)
+//                }
+//                self.codeCategories()
+//                return true
             }
         }
         return false
