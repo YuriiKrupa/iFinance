@@ -335,6 +335,60 @@
             </objects>
             <point key="canvasLocation" x="1155" y="422.53521126760563"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="A67-Nl-poX">
+            <objects>
+                <viewController id="Ekr-bU-rGl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jWp-0y-DxU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ICa-JL-Wpk">
+                                <rect key="frame" x="0.0" y="113" width="320" height="455"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kKQ-Ld-ZOj">
+                                <rect key="frame" x="10" y="75" width="300" height="29"/>
+                                <segments>
+                                    <segment title="Today"/>
+                                    <segment title="Week"/>
+                                    <segment title="Month"/>
+                                    <segment title="Year"/>
+                                    <segment title="Manual"/>
+                                </segments>
+                            </segmentedControl>
+                            <datePicker hidden="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="7q4-vE-yQR">
+                                <rect key="frame" x="0.0" y="113" width="320" height="40"/>
+                                <date key="date" timeIntervalSinceReferenceDate="528890731.44326198">
+                                    <!--2017-10-05 10:05:31 +0000-->
+                                </date>
+                            </datePicker>
+                            <datePicker hidden="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="81l-Wy-Wey">
+                                <rect key="frame" x="0.0" y="156" width="320" height="40"/>
+                                <date key="date" timeIntervalSinceReferenceDate="528890906.301274">
+                                    <!--2017-10-05 10:08:26 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="81l-Wy-Wey" firstAttribute="top" secondItem="7q4-vE-yQR" secondAttribute="bottom" constant="5" id="FDl-ho-HQk"/>
+                            <constraint firstItem="7q4-vE-yQR" firstAttribute="top" secondItem="kKQ-Ld-ZOj" secondAttribute="bottom" constant="5" id="KSP-vP-45U"/>
+                            <constraint firstItem="81l-Wy-Wey" firstAttribute="trailing" secondItem="OgL-lq-Ahk" secondAttribute="trailing" id="hpF-3H-Xar"/>
+                            <constraint firstItem="kKQ-Ld-ZOj" firstAttribute="leading" secondItem="OgL-lq-Ahk" secondAttribute="leading" constant="10" id="pao-cT-Dhv"/>
+                            <constraint firstItem="7q4-vE-yQR" firstAttribute="trailing" secondItem="OgL-lq-Ahk" secondAttribute="trailing" id="rRX-4u-kcJ"/>
+                            <constraint firstItem="7q4-vE-yQR" firstAttribute="leading" secondItem="OgL-lq-Ahk" secondAttribute="leading" id="rZY-yN-Nfy"/>
+                            <constraint firstItem="81l-Wy-Wey" firstAttribute="leading" secondItem="OgL-lq-Ahk" secondAttribute="leading" id="vb2-O8-jM3"/>
+                            <constraint firstItem="OgL-lq-Ahk" firstAttribute="trailing" secondItem="kKQ-Ld-ZOj" secondAttribute="trailing" constant="10" id="zhT-a7-3AC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OgL-lq-Ahk"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2AJ-my-Nnm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-684" y="1527"/>
+        </scene>
         <!--Chart-->
         <scene sceneID="I5N-Mp-xef">
             <objects>
@@ -345,6 +399,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="nF1-hr-xeb"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="fmX-fY-Rfy">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="9Tb-YH-haZ">
+                            <connections>
+                                <segue destination="Ekr-bU-rGl" kind="show" id="on6-aB-WRA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VaZ-xy-JZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

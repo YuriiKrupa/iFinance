@@ -11,7 +11,7 @@ import Foundation
 class ReportModel {
     private let model = TransferModel.transferModel
     var report: [(name: String, date: Date, value: Double, category: Category, isIncome: Bool)] = []
-    
+    //TODO: Memory leak, maybe rewrite as singletone but what about init???....
     init() {
 //        var report: [(name: String, date: Date, value: Double, category: Category, isIncome: Bool)] = []
         for transaction in model.getTransactionList() {
@@ -30,19 +30,22 @@ class ReportModel {
         return result
     }
     func getToday() -> [(name: String, date: Date, value: Double, category: Category, isIncome: Bool)] {
-        let cal: Calendar = Calendar(identifier: .gregorian)
-        let dayStart: Date = cal.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
-        let dayEnd: Date = cal.date(bySettingHour: 23, minute: 59, second: 59, of: Date())!
-        return getRange(from: dayStart, to: dayEnd)
+        if let dayProp = setDayStartEnd(Date()) { return getRange(from: dayProp.start, to: dayProp.end) }
+        //FIXME: Think about fail return
+        return getRange(from: setDaysBefore(0)!, to: setDayStartEnd(Date())!.end)
     }
-    
-//    func calculateByDate(between from: Date, and to: Date) -> [(name: String, value: Double, category: String)] {
-//        var resultArray: [(name: String, value: Double, category: String)] = []
-//        for transaction in model.getTransactionList() {
-//
-//        }
-//
-//        return resultArray
-//    }
+    private func setDaysBefore(_ dayCount: Int) -> Date? {
+        let calendar = Calendar.current
+        if let daysBefore = calendar.date(byAdding: .day, value: -dayCount, to: Date()) {
+            if let day = setDayStartEnd(daysBefore)?.start { return day }
+        }
+        return nil
+    }
+    private func setDayStartEnd(_ day: Date) -> (start: Date, end: Date)? {
+        let calendar: Calendar = Calendar(identifier: .gregorian)
+        //FIXME: redo nil return
+        guard let dayStart: Date = calendar.date(bySettingHour: 0, minute: 0, second: 0, of: day), let dayEnd: Date = calendar.date(bySettingHour: 23, minute: 59, second: 59, of: day) else { return nil }
+        return (dayStart, dayEnd)
+    }
     
 }
