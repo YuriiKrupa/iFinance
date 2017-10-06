@@ -13,6 +13,8 @@ class ChartViewController: UIViewController {
     
     let model = TransferModel.transferModel
     var pieChartView: PieChartView!
+    let repo = ReportModel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +22,18 @@ class ChartViewController: UIViewController {
         // Do any additional setup after loading the view.
         var dataStr = [String]()
         var dataValue = [Double]()
-        for i in model.getTransactionList() {
-            if !dataStr.contains(i.getInfo().actionCategory.getInfo().cName) {
-                dataStr.append(i.getInfo().actionCategory.getInfo().cName)
-                dataValue.append(i.getInfo().actionValue)
-            } else {
-                dataValue[dataStr.index(of: i.getInfo().actionCategory.getInfo().cName)!] += i.getInfo().actionValue
-            }
+//        for i in model.getTransactionList() {
+//            if !dataStr.contains(i.getInfo().actionCategory.getInfo().cName) {
+//                dataStr.append(i.getInfo().actionCategory.getInfo().cName)
+//                dataValue.append(i.getInfo().actionValue)
+//            } else {
+//                dataValue[dataStr.index(of: i.getInfo().actionCategory.getInfo().cName)!] += i.getInfo().actionValue
+//            }
+//        }
+        var t = repo.getLastSevenDays().filter({ $0.name != "" && $0.value != 0 })
+        for i in t {
+            dataStr.append(i.name)
+            dataValue.append(i.value)
         }
         pieChartView = PieChartView(frame: self.view.bounds)
         self.view.addSubview(pieChartView!)

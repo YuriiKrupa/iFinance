@@ -335,10 +335,10 @@
             </objects>
             <point key="canvasLocation" x="1155" y="422.53521126760563"/>
         </scene>
-        <!--View Controller-->
+        <!--Report View Controller-->
         <scene sceneID="A67-Nl-poX">
             <objects>
-                <viewController id="Ekr-bU-rGl" sceneMemberID="viewController">
+                <viewController id="Ekr-bU-rGl" customClass="ReportViewController" customModule="iFinance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jWp-0y-DxU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -347,18 +347,21 @@
                                 <rect key="frame" x="10" y="79" width="300" height="29"/>
                                 <segments>
                                     <segment title="Today"/>
-                                    <segment title="Week"/>
-                                    <segment title="Month"/>
+                                    <segment title="7 days"/>
+                                    <segment title="30 days"/>
                                     <segment title="Year"/>
                                     <segment title="Manual"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedTypeControl:" destination="Ekr-bU-rGl" eventType="valueChanged" id="SiG-Ko-low"/>
+                                </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Adt-uW-pll">
                                 <rect key="frame" x="0.0" y="117" width="320" height="451"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="7q4-vE-yQR">
+                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="7q4-vE-yQR">
                                 <rect key="frame" x="0.0" y="117" width="320" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="HTQ-1y-hUH"/>
@@ -368,7 +371,7 @@
                                     <!--2017-10-05 10:05:31 +0000-->
                                 </date>
                             </datePicker>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="81l-Wy-Wey">
+                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="81l-Wy-Wey">
                                 <rect key="frame" x="0.0" y="167" width="320" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="NnR-P7-LUf"/>
@@ -393,6 +396,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OgL-lq-Ahk"/>
                     </view>
+                    <connections>
+                        <outlet property="chartAreaSubView" destination="Adt-uW-pll" id="Qpd-PQ-dV9"/>
+                        <outlet property="endDatePicker" destination="81l-Wy-Wey" id="plw-ON-gRZ"/>
+                        <outlet property="segmentedTypeState" destination="kKQ-Ld-ZOj" id="P29-yy-0HF"/>
+                        <outlet property="startDatePicker" destination="7q4-vE-yQR" id="Lle-76-Lc8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2AJ-my-Nnm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

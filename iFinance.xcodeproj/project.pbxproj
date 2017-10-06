@@ -26,6 +26,7 @@
 		3F7DB1801F767C7300BB37A5 /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7DB17F1F767C7300BB37A5 /* ReportModel.swift */; };
 		3F7DB1821F76C09D00BB37A5 /* TransactionDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7DB1811F76C09D00BB37A5 /* TransactionDetailedViewController.swift */; };
 		3FABCFFA1F7D8CEF0019AA5E /* 3484868_original.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FABCFF91F7D8CEF0019AA5E /* 3484868_original.jpg */; };
+		3FCCCE971F877FB900F68193 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCCCE961F877FB900F68193 /* ReportViewController.swift */; };
 		3FEF1D9F1F693D2700CDDA7E /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF1D9E1F693D2700CDDA7E /* Transaction.swift */; };
 		49D2D0377ABE1E96EC23B37B /* Pods_iFinanceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 739FBC15E7AA43DA926F5289 /* Pods_iFinanceTests.framework */; };
 		750926E8AA85E8A252A232AB /* Pods_iFinanceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C59FDC63944D29AF5DD3396 /* Pods_iFinanceUITests.framework */; };
@@ -76,6 +77,7 @@
 		3F7DB17F1F767C7300BB37A5 /* ReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModel.swift; sourceTree = "<group>"; };
 		3F7DB1811F76C09D00BB37A5 /* TransactionDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailedViewController.swift; sourceTree = "<group>"; };
 		3FABCFF91F7D8CEF0019AA5E /* 3484868_original.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3484868_original.jpg; sourceTree = "<group>"; };
+		3FCCCE961F877FB900F68193 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		3FEF1D9E1F693D2700CDDA7E /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		71C93EF1E42A3A4D0C7BFAA7 /* Pods-iFinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iFinance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iFinance/Pods-iFinance.debug.xcconfig"; sourceTree = "<group>"; };
 		739FBC15E7AA43DA926F5289 /* Pods_iFinanceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iFinanceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +208,7 @@
 				3F184E101F6FF82E003A3716 /* CategoryManagerViewController.swift */,
 				3F2007421F703A9800355455 /* CreateEditCategoryViewController.swift */,
 				3F16C1A11F78E04F008D20FB /* ChartViewController.swift */,
+				3FCCCE961F877FB900F68193 /* ReportViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				3F12DD0F1F62987B006F49DD /* iFinance.xcdatamodeld in Sources */,
 				3F16C1A21F78E04F008D20FB /* ChartViewController.swift in Sources */,
 				3F12DD3A1F65BA2C006F49DD /* CategorySelectViewController.swift in Sources */,
+				3FCCCE971F877FB900F68193 /* ReportViewController.swift in Sources */,
 				3F0B5AD01F72909F0073EF91 /* TransferModel.swift in Sources */,
 				3F7DB1821F76C09D00BB37A5 /* TransactionDetailedViewController.swift in Sources */,
 				3F12DD071F62987B006F49DD /* AppDelegate.swift in Sources */,
