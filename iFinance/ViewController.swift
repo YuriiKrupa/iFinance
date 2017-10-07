@@ -69,7 +69,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.setUpView()
         
         //MARK: Debug Area start
-            let date: Date = Date()
+            /*let date: Date = Date()
             let cal: Calendar = Calendar(identifier: .gregorian)
         
             let dayStart: Date = cal.date(bySettingHour: 0, minute: 0, second: 0, of: date)!
@@ -91,8 +91,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             var enumer = temp.prepareForChars(data: temp.getLastThirtyDays())
             for i in 0..<enumer.names.count {
                 print("Names \(enumer.names[i]) - Values \(enumer.values[i])")
+            }*/
+        
+        //"http://vps9615.hyperhost.name/"
+        
+        let url = URL(string: "http://vps9615.hyperhost.name")
+        
+        let session = URLSession.shared
+        //let url = URL(string: "http://masilotti.com")!
+        let task = session.dataTask(with: url!) { (data, _, _) -> Void in
+            if let data = data {
+                let string = String(data: data, encoding: String.Encoding.utf8)
+                print(string) //JSONSerialization
             }
-        //MARK: Debug Area end
+        }
+        task.resume()
     }
 
     override func didReceiveMemoryWarning() {
