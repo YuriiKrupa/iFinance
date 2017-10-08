@@ -99,13 +99,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let session = URLSession.shared
         //let url = URL(string: "http://masilotti.com")!
-        let task = session.dataTask(with: url!) { (data, _, _) -> Void in
-            if let data = data {
-                let string = String(data: data, encoding: String.Encoding.utf8)
-                print(string) //JSONSerialization
+        //let task =
+        session.dataTask(with: url!) { (data, response, error) -> Void in
+            if let response = response {
+                print(response)
             }
-        }
-        task.resume()
+            if let data = data {
+                //print(data) //return Response length
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                } catch {
+                    print(error)
+                    let string = String(data: data, encoding: String.Encoding.utf8)
+                    print(string, string?.count) //JSONSerialization
+                }
+            }
+        }.resume()
     }
 
     override func didReceiveMemoryWarning() {
