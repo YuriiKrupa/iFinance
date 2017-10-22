@@ -23,7 +23,7 @@
 		3F2007431F703A9800355455 /* CreateEditCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2007421F703A9800355455 /* CreateEditCategoryViewController.swift */; };
 		3F5BC6B51F6E6D3E00F5DA8D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5BC6B41F6E6D3E00F5DA8D /* Category.swift */; };
 		3F5BC6BD1F6E708800F5DA8D /* CreateEditTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5BC6BC1F6E708800F5DA8D /* CreateEditTransactionViewController.swift */; };
-		3F7DB1801F767C7300BB37A5 /* w.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7DB17F1F767C7300BB37A5 /* w.swift */; };
+		3F7DB1801F767C7300BB37A5 /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7DB17F1F767C7300BB37A5 /* ReportModel.swift */; };
 		3F7DB1821F76C09D00BB37A5 /* TransactionDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7DB1811F76C09D00BB37A5 /* TransactionDetailedViewController.swift */; };
 		3FABCFFA1F7D8CEF0019AA5E /* 3484868_original.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FABCFF91F7D8CEF0019AA5E /* 3484868_original.jpg */; };
 		3FCCCE971F877FB900F68193 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCCCE961F877FB900F68193 /* ReportViewController.swift */; };
@@ -74,7 +74,7 @@
 		3F2007421F703A9800355455 /* CreateEditCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditCategoryViewController.swift; sourceTree = "<group>"; };
 		3F5BC6B41F6E6D3E00F5DA8D /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		3F5BC6BC1F6E708800F5DA8D /* CreateEditTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditTransactionViewController.swift; sourceTree = "<group>"; };
-		3F7DB17F1F767C7300BB37A5 /* w.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = w.swift; sourceTree = "<group>"; };
+		3F7DB17F1F767C7300BB37A5 /* ReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModel.swift; sourceTree = "<group>"; };
 		3F7DB1811F76C09D00BB37A5 /* TransactionDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailedViewController.swift; sourceTree = "<group>"; };
 		3FABCFF91F7D8CEF0019AA5E /* 3484868_original.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3484868_original.jpg; sourceTree = "<group>"; };
 		3FCCCE961F877FB900F68193 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 				3F5BC6B41F6E6D3E00F5DA8D /* Category.swift */,
 				3FEF1D9E1F693D2700CDDA7E /* Transaction.swift */,
 				3F0B5ACF1F72909F0073EF91 /* TransferModel.swift */,
-				3F7DB17F1F767C7300BB37A5 /* w.swift */,
+				3F7DB17F1F767C7300BB37A5 /* ReportModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -530,7 +530,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F7DB1801F767C7300BB37A5 /* w.swift in Sources */,
+				3F7DB1801F767C7300BB37A5 /* ReportModel.swift in Sources */,
 				3F12DD091F62987B006F49DD /* ViewController.swift in Sources */,
 				3F184E111F6FF82E003A3716 /* CategoryManagerViewController.swift in Sources */,
 				3F12DD0F1F62987B006F49DD /* iFinance.xcdatamodeld in Sources */,
