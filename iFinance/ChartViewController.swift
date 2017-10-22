@@ -30,11 +30,7 @@ class ChartViewController: UIViewController {
                 dataValue[dataStr.index(of: i.getInfo().actionCategory.getInfo().cName)!] += i.getInfo().actionValue
             }
         }
-//      var t = repo.getTransactionByRange(from: repo.setDaysBefore(60)!, to: Date(), categorySpecified: model.getGategory(byName: "Food")).filter({ $0.name != "" && $0.value != 0 })
-//        for i in t {
-//            dataStr.append(i.name)
-//            dataValue.append(i.value)
-//        }
+
         pieChartView = PieChartView(frame: self.view.bounds)
         self.view.addSubview(pieChartView!)
         setChart(dataPoints: dataStr, values: dataValue)

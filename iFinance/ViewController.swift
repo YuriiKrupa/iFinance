@@ -92,34 +92,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             for i in 0..<enumer.names.count {
                 print("Names \(enumer.names[i]) - Values \(enumer.values[i])")
             }*/
-        
-        //"http://vps9615.hyperhost.name/" --- Host for DTapi
-        
-        let url = "http://vps9615.hyperhost.name"
-        let urlLogIn = "/login/index"
-        let urlLogOut = "/login/logout"
-        /*let session = URLSession.shared
-        //let task =
-        session.dataTask(with: url) { (data, response, error) -> Void in
-            if let response = response {
-                print(response)
-            }
-            if let data = data {
-                //print(data) //return Response length
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
-                } catch {
-                    print(error)
-                    let string = String(data: data, encoding: String.Encoding.utf8)
-                    print(string, string?.count) //JSONSerialization
-                }
-            }
-        }.resume()*/
-        
-        			
-        
-//      MARK: Debug Area
     }
 
     override func didReceiveMemoryWarning() {
