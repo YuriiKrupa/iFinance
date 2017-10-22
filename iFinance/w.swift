@@ -41,7 +41,7 @@ class ReportModel {
     func getLastThirtyDays() -> [(name: String, date: Date, value: Double, category: Category, isIncome: Bool)] {
         return getRange(from: setDaysBefore(30)!, to: Date())
     }
-    private func setDaysBefore(_ dayCount: Int) -> Date? {
+    func setDaysBefore(_ dayCount: Int) -> Date? {
         let calendar = Calendar.current
         if let daysBefore = calendar.date(byAdding: .day, value: -dayCount, to: Date()) {
             if let day = setDayStartEnd(daysBefore)?.start { return day }

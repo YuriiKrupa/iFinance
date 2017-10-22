@@ -22,19 +22,19 @@ class ChartViewController: UIViewController {
         // Do any additional setup after loading the view.
         var dataStr = [String]()
         var dataValue = [Double]()
-//        for i in model.getTransactionList() {
-//            if !dataStr.contains(i.getInfo().actionCategory.getInfo().cName) {
-//                dataStr.append(i.getInfo().actionCategory.getInfo().cName)
-//                dataValue.append(i.getInfo().actionValue)
-//            } else {
-//                dataValue[dataStr.index(of: i.getInfo().actionCategory.getInfo().cName)!] += i.getInfo().actionValue
-//            }
-//        }
-        var t = repo.getLastSevenDays().filter({ $0.name != "" && $0.value != 0 })
-        for i in t {
-            dataStr.append(i.name)
-            dataValue.append(i.value)
+        for i in model.getTransactionList() {
+            if !dataStr.contains(i.getInfo().actionCategory.getInfo().cName) {
+                dataStr.append(i.getInfo().actionCategory.getInfo().cName)
+                dataValue.append(i.getInfo().actionValue)
+            } else {
+                dataValue[dataStr.index(of: i.getInfo().actionCategory.getInfo().cName)!] += i.getInfo().actionValue
+            }
         }
+//      var t = repo.getTransactionByRange(from: repo.setDaysBefore(60)!, to: Date(), categorySpecified: model.getGategory(byName: "Food")).filter({ $0.name != "" && $0.value != 0 })
+//        for i in t {
+//            dataStr.append(i.name)
+//            dataValue.append(i.value)
+//        }
         pieChartView = PieChartView(frame: self.view.bounds)
         self.view.addSubview(pieChartView!)
         setChart(dataPoints: dataStr, values: dataValue)
@@ -43,8 +43,8 @@ class ChartViewController: UIViewController {
     func setChart(dataPoints: [String], values: [Double]) {
         var dataEntries: [ChartDataEntry] = []
         for i in 0..<dataPoints.count {
-            let dataEntry1 = PieChartDataEntry(value: values[i], label: dataPoints[i])
-            dataEntries.append(dataEntry1)
+            let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i])
+            dataEntries.append(dataEntry)
         }
         
         let pieChartDataSet = PieChartDataSet(values: dataEntries, label: nil)

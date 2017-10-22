@@ -68,7 +68,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         transactionList.reloadData()
         self.setUpView()
         
-        //MARK: Debug Area start
+//      MARK: Debug Area start
             /*let date: Date = Date()
             let cal: Calendar = Calendar(identifier: .gregorian)
         
@@ -93,14 +93,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 print("Names \(enumer.names[i]) - Values \(enumer.values[i])")
             }*/
         
-        //"http://vps9615.hyperhost.name/"
+        //"http://vps9615.hyperhost.name/" --- Host for DTapi
         
-        let url = URL(string: "http://vps9615.hyperhost.name")
-        
-        let session = URLSession.shared
-        //let url = URL(string: "http://masilotti.com")!
+        let url = "http://vps9615.hyperhost.name"
+        let urlLogIn = "/login/index"
+        let urlLogOut = "/login/logout"
+        /*let session = URLSession.shared
         //let task =
-        session.dataTask(with: url!) { (data, response, error) -> Void in
+        session.dataTask(with: url) { (data, response, error) -> Void in
             if let response = response {
                 print(response)
             }
@@ -115,7 +115,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     print(string, string?.count) //JSONSerialization
                 }
             }
-        }.resume()
+        }.resume()*/
+        
+        			
+        
+//      MARK: Debug Area
     }
 
     override func didReceiveMemoryWarning() {
