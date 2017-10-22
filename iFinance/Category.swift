@@ -26,10 +26,6 @@ class Category: NSObject, NSCoding {
         self.name = name
         self.descriptionText = text
     }
-//    func makeTemp(id:UUID, name: String, decriptionTemp: String?) -> Category {
-//        return Category.init(id: id, name: name, decription: decriptionTemp)
-//    }
-    
     //MARK: Class methods
     func getInfo() -> ( cId: UUID, cName: String, cDescription: String) {
         return (id!, name!, descriptionText!)

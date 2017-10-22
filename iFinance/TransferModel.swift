@@ -55,7 +55,6 @@ class TransferModel {
     }
     func updateCategory(byCategory: Category, name: String, description: String = "") -> Bool {
         if categoryStorage.contains(byCategory) {
-            //FIXME: Refactor acording DRY
             guard let index = categoryStorage.index(of: byCategory) else { return false }
                 if description != "" {
                     categoryStorage[index] = Category.init(id: byCategory.getInfo().cId, name: name, decription: description)
@@ -64,7 +63,6 @@ class TransferModel {
                 }
                 self.codeCategories()
                 return true
-            
         }
         return false
     }
@@ -72,15 +70,6 @@ class TransferModel {
         for i in categoryStorage {
             if i.getInfo().cName == byCategoryName {
                 return updateCategory(byCategory: i, name: name, description: description)
-//                //FIXME: Refactor acording DRY
-//                 guard let index = categoryStorage.index(of: i) else { return false }
-//                if description != "" {
-//                    categoryStorage[index] = Category.init(id: i.getInfo().cId, name: name, decription: description)
-//                } else {
-//                    categoryStorage[index] = Category.init(id: i.getInfo().cId, name: name, decription: categoryStorage[index].getInfo().cDescription)
-//                }
-//                self.codeCategories()
-//                return true
             }
         }
         return false
@@ -97,7 +86,7 @@ class TransferModel {
     //MARK: NSCoding for Category List
     func codeCategories(){
         if categoriesPath != nil {
-            let success = NSKeyedArchiver.archiveRootObject(categoryStorage, toFile: categoriesPath!)
+          _ = NSKeyedArchiver.archiveRootObject(categoryStorage, toFile: categoriesPath!)
         }
     }
     func decodeCategories(){
@@ -183,7 +172,7 @@ class TransferModel {
     //MARK: NSCoding for Transaction list
     func codeTransactions() {
         if transactionsPath != nil {
-            let success = NSKeyedArchiver.archiveRootObject(transactionsStorage, toFile: transactionsPath!)
+          _ = NSKeyedArchiver.archiveRootObject(transactionsStorage, toFile: transactionsPath!)
         }
     }
     
